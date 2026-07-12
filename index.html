@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>MemoryQR by MonicaLoov.ai</title>
 
   <meta
     name="description"
     content="MemoryQR är en exklusiv QR-tjänst för bröllop, födelsedag, baby shower, förlovning och företagsevent. Gästerna laddar upp bilder och filmer, och alla minnen samlas på samma plats."
-  />
+  >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +26,6 @@
       --ink:#111111;
       --muted:#666666;
       --line:rgba(17,17,17,.13);
-      --glass:rgba(255,255,255,.82);
       --shadow:0 24px 70px rgba(0,0,0,.14);
     }
 
@@ -83,7 +83,7 @@
       align-items:center;
       justify-content:center;
       min-height:52px;
-      padding:0 26px;
+      padding:0 27px;
       border-radius:999px;
       border:1px solid transparent;
       font-weight:600;
@@ -105,12 +105,6 @@
       opacity:.65;
       cursor:not-allowed;
       transform:none;
-    }
-
-    .btn-light{
-      background:rgba(255,255,255,.78);
-      border-color:rgba(17,17,17,.14);
-      backdrop-filter:blur(10px);
     }
 
     header{
@@ -168,6 +162,10 @@
       align-items:center;
       gap:28px;
       font-size:14px;
+    }
+
+    .links a:hover{
+      opacity:.65;
     }
 
     .hero{
@@ -235,24 +233,20 @@
 
     .hero-actions{
       display:flex;
-      gap:16px;
-      flex-wrap:wrap;
       margin-top:30px;
     }
 
-    .hero-points,
     .event-types{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
-      margin-top:20px;
+      margin-top:24px;
     }
 
-    .hero-points span,
     .event-types span{
-      padding:8px 12px;
+      padding:8px 13px;
       border-radius:999px;
-      background:rgba(255,255,255,.66);
+      background:rgba(255,255,255,.68);
       border:1px solid rgba(17,17,17,.12);
       font-size:12px;
       backdrop-filter:blur(8px);
@@ -620,7 +614,6 @@
       }
 
       .hero-actions,
-      .hero-points,
       .event-types{
         justify-content:center;
       }
@@ -757,26 +750,6 @@
             <a class="btn btn-dark" href="#kontakt">
               Beställ tjänsten
             </a>
-
-            <a class="btn btn-light" href="#tjansten">
-              Se vad som ingår
-            </a>
-
-          </div>
-
-          <div class="hero-points">
-
-            <span>
-              Personlig QR-kod
-            </span>
-
-            <span>
-              Gäster laddar upp bilder
-            </span>
-
-            <span>
-              Privat galleri
-            </span>
 
           </div>
 
