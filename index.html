@@ -2,16 +2,21 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>MemoryQR by MonicaLoov.ai</title>
 
   <meta
     name="description"
-    content="MemoryQR är en komplett tjänst för event. Vi skapar din personliga QR-kod, eventsida, bilduppladdning och privata galleri."
+    content="MemoryQR är en komplett QR-tjänst för bröllop, födelsedagar, dop, student, baby shower, jubileum och företagsevent. Vi skapar QR-koden, eventsidan, uppladdningen och galleriet."
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
@@ -23,14 +28,15 @@
     :root{
       --cream:#f5f0e8;
       --paper:#fcfaf6;
-      --sand:#e5dbce;
+      --sand:#e8ded1;
       --gold:#ad8758;
       --gold-light:#d7bd98;
       --black:#171512;
+      --dark:#211d18;
       --grey:#706960;
       --line:rgba(23,21,18,.13);
       --white:#ffffff;
-      --shadow:0 28px 80px rgba(48,37,26,.13);
+      --shadow:0 28px 80px rgba(48,37,26,.14);
     }
 
     *{
@@ -47,8 +53,8 @@
       font-family:"DM Sans",sans-serif;
       background:var(--cream);
       color:var(--black);
-      overflow-x:hidden;
       line-height:1.6;
+      overflow-x:hidden;
     }
 
     body.menu-open{
@@ -78,13 +84,8 @@
       margin:0 auto;
     }
 
-    .eyebrow{
-      margin-bottom:18px;
-      color:var(--gold);
-      font-size:12px;
-      font-weight:600;
-      letter-spacing:.22em;
-      text-transform:uppercase;
+    section{
+      padding:115px 0;
     }
 
     h1,
@@ -95,8 +96,13 @@
       font-weight:500;
     }
 
-    section{
-      padding:120px 0;
+    .eyebrow{
+      margin-bottom:18px;
+      color:var(--gold);
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:.22em;
+      text-transform:uppercase;
     }
 
     .button{
@@ -153,7 +159,7 @@
       left:0;
       right:0;
       z-index:1000;
-      background:rgba(245,240,232,.9);
+      background:rgba(245,240,232,.92);
       border-bottom:1px solid var(--line);
       backdrop-filter:blur(18px);
     }
@@ -220,7 +226,7 @@
     }
 
     .main-nav .nav-cta{
-      padding:12px 20px;
+      padding:12px 21px;
       border-radius:100px;
       background:var(--black);
       color:white;
@@ -249,7 +255,7 @@
 
     .hero{
       min-height:100vh;
-      padding:155px 0 90px;
+      padding:150px 0 85px;
       display:flex;
       align-items:center;
       position:relative;
@@ -269,13 +275,13 @@
     .hero-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:80px;
+      gap:75px;
       align-items:center;
     }
 
     .hero h1{
       max-width:720px;
-      font-size:clamp(54px,6.8vw,90px);
+      font-size:clamp(54px,6.7vw,90px);
       line-height:.99;
       letter-spacing:-.045em;
     }
@@ -311,10 +317,10 @@
     }
 
     .trust-row{
-      margin-top:50px;
+      margin-top:48px;
       display:flex;
       flex-wrap:wrap;
-      gap:26px;
+      gap:25px;
       color:var(--grey);
       font-size:13px;
     }
@@ -333,7 +339,7 @@
       background:var(--gold);
     }
 
-    /* HERO QR VISUAL */
+    /* QR VISUAL */
 
     .hero-visual{
       min-height:670px;
@@ -352,7 +358,7 @@
         radial-gradient(
           circle,
           rgba(219,203,181,.9),
-          rgba(245,240,232,.05) 68%
+          rgba(245,240,232,.04) 68%
         );
     }
 
@@ -415,7 +421,7 @@
 
     .phone{
       position:absolute;
-      right:-20px;
+      right:-18px;
       bottom:5px;
       z-index:6;
       width:205px;
@@ -559,7 +565,7 @@
       line-height:1.75;
     }
 
-    /* HOW IT WORKS */
+    /* STEPS */
 
     .how-section{
       background:var(--paper);
@@ -572,13 +578,13 @@
     }
 
     .step-card{
-      min-height:350px;
+      min-height:340px;
       padding:30px;
       display:flex;
       flex-direction:column;
       border:1px solid var(--line);
       border-radius:24px;
-      background:rgba(255,255,255,.4);
+      background:rgba(255,255,255,.42);
       transition:.25s ease;
     }
 
@@ -625,45 +631,46 @@
       line-height:1.65;
     }
 
-    /* DONE FOR YOU */
+    /* SERVICE */
 
-    .done-grid{
+    .service-grid{
       display:grid;
       grid-template-columns:.95fr 1.05fr;
       gap:90px;
       align-items:center;
     }
 
-    .done-visual{
-      min-height:640px;
+    .service-visual{
+      min-height:620px;
       position:relative;
     }
 
-    .done-photo{
+    .service-photo{
       position:absolute;
       inset:0 75px 0 0;
       overflow:hidden;
       border-radius:34px;
+      background:var(--dark);
     }
 
-    .done-photo img{
+    .service-photo img{
       width:100%;
       height:100%;
       object-fit:cover;
     }
 
-    .done-photo::after{
+    .service-photo::after{
       content:"";
       position:absolute;
       inset:0;
       background:linear-gradient(
         to top,
-        rgba(20,17,14,.24),
+        rgba(20,17,14,.28),
         transparent 55%
       );
     }
 
-    .floating-service-card{
+    .floating-service{
       position:absolute;
       right:0;
       bottom:55px;
@@ -675,14 +682,14 @@
       box-shadow:var(--shadow);
     }
 
-    .floating-service-card strong{
+    .floating-service strong{
       display:block;
       margin-bottom:12px;
       font-family:"Playfair Display",serif;
       font-size:25px;
     }
 
-    .floating-service-card p{
+    .floating-service p{
       color:var(--grey);
       font-size:13px;
     }
@@ -708,12 +715,12 @@
       font-size:11px;
     }
 
-    .done-copy h2{
+    .service-copy h2{
       font-size:clamp(43px,5.2vw,70px);
       line-height:1.04;
     }
 
-    .done-copy > p:not(.eyebrow){
+    .service-copy > p:not(.eyebrow){
       margin-top:25px;
       color:var(--grey);
       font-size:17px;
@@ -748,7 +755,7 @@
       font-size:14px;
     }
 
-    /* WHAT CUSTOMER GETS */
+    /* PACKAGE */
 
     .package-section{
       background:var(--black);
@@ -804,7 +811,7 @@
       font-size:13px;
     }
 
-    /* EVENTS */
+    /* EXCLUSIVE EVENT CARDS */
 
     .event-grid{
       display:grid;
@@ -813,11 +820,13 @@
     }
 
     .event-card{
-      min-height:400px;
+      min-height:430px;
       position:relative;
       overflow:hidden;
       grid-column:span 4;
       border-radius:26px;
+      background:
+        linear-gradient(145deg,#625346,#191714);
     }
 
     .event-card.large{
@@ -828,30 +837,44 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      transition:transform .7s ease;
+      object-position:center;
+      transition:transform .8s ease;
     }
 
     .event-card:hover img{
-      transform:scale(1.05);
+      transform:scale(1.055);
+    }
+
+    .event-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:1;
+      background:
+        linear-gradient(
+          to top,
+          rgba(14,12,10,.93),
+          rgba(14,12,10,.08) 68%
+        );
+      pointer-events:none;
     }
 
     .event-card::after{
       content:"";
       position:absolute;
-      inset:0;
-      background:linear-gradient(
-        to top,
-        rgba(16,13,11,.88),
-        rgba(16,13,11,.03) 65%
-      );
+      inset:16px;
+      z-index:1;
+      border:1px solid rgba(255,255,255,.19);
+      border-radius:17px;
+      pointer-events:none;
     }
 
     .event-copy{
       position:absolute;
-      left:27px;
-      right:27px;
-      bottom:25px;
-      z-index:2;
+      left:38px;
+      right:38px;
+      bottom:35px;
+      z-index:3;
       color:white;
     }
 
@@ -863,7 +886,7 @@
 
     .event-copy h3{
       margin-top:6px;
-      font-size:31px;
+      font-size:34px;
     }
 
     .event-copy p{
@@ -872,7 +895,27 @@
       font-size:13px;
     }
 
-    /* SIMPLE MESSAGE */
+    /* IMAGE FALLBACK */
+
+    .event-card.image-error img{
+      opacity:0;
+    }
+
+    .event-card.image-error::before{
+      background:
+        radial-gradient(
+          circle at 70% 20%,
+          rgba(173,135,88,.35),
+          transparent 35%
+        ),
+        linear-gradient(
+          145deg,
+          #75614d,
+          #171512 74%
+        );
+    }
+
+    /* SIMPLE PANEL */
 
     .simple-panel{
       padding:78px;
@@ -1104,11 +1147,11 @@
       font-size:11px;
     }
 
-    /* MOBILE */
+    /* TABLET */
 
     @media(max-width:1000px){
       .hero-grid,
-      .done-grid,
+      .service-grid,
       .package-grid,
       .contact-grid{
         grid-template-columns:1fr;
@@ -1138,7 +1181,7 @@
         grid-template-columns:1fr 1fr;
       }
 
-      .done-visual{
+      .service-visual{
         min-height:570px;
       }
 
@@ -1155,6 +1198,8 @@
         grid-template-columns:1fr 1fr;
       }
     }
+
+    /* MOBILE */
 
     @media(max-width:760px){
       .site-header{
@@ -1269,15 +1314,15 @@
         min-height:290px;
       }
 
-      .done-visual{
+      .service-visual{
         min-height:500px;
       }
 
-      .done-photo{
+      .service-photo{
         inset:0 35px 0 0;
       }
 
-      .floating-service-card{
+      .floating-service{
         width:245px;
         padding:22px;
       }
@@ -1293,7 +1338,13 @@
       .event-card,
       .event-card.large{
         grid-column:auto;
-        min-height:355px;
+        min-height:390px;
+      }
+
+      .event-copy{
+        left:32px;
+        right:32px;
+        bottom:31px;
       }
 
       .simple-panel{
@@ -1357,12 +1408,10 @@
     </button>
 
     <nav class="main-nav" id="mainNavigation">
-
       <a href="#how">Så fungerar det</a>
       <a href="#service">Tjänsten</a>
       <a href="#events">Event</a>
       <a href="#contact" class="nav-cta">Beställ MemoryQR</a>
-
     </nav>
 
   </div>
@@ -1370,6 +1419,8 @@
 </header>
 
 <main id="top">
+
+  <!-- HERO -->
 
   <section class="hero">
 
@@ -1436,27 +1487,16 @@
               <rect width="120" height="120" fill="#ffffff"/>
 
               <g fill="#171512">
-
                 <path d="M8 8h38v38H8zM14 14v26h26V14zM20 20h14v14H20z"/>
-
                 <path d="M74 8h38v38H74zM80 14v26h26V14zM86 20h14v14H86z"/>
-
                 <path d="M8 74h38v38H8zM14 80v26h26V80zM20 86h14v14H20z"/>
-
                 <path d="M54 8h10v10H54zM54 26h10v20H54z"/>
-
                 <path d="M8 54h10v10H8zM26 54h20v10H26z"/>
-
                 <path d="M54 54h10v10H54zM74 54h18v10H74z"/>
-
                 <path d="M100 54h12v12h-12zM54 74h10v18H54z"/>
-
                 <path d="M54 100h10v12H54zM74 74h10v10H74z"/>
-
                 <path d="M92 74h20v10H92zM74 92h20v20H74z"/>
-
                 <path d="M100 92h12v20h-12z"/>
-
               </g>
 
             </svg>
@@ -1487,22 +1527,22 @@
             <div class="mini-gallery">
 
               <img
-                src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=80"
+                src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=85"
                 alt=""
               >
 
               <img
-                src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=500&q=80"
+                src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=500&q=85"
                 alt=""
               >
 
               <img
-                src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=500&q=80"
+                src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=500&q=85"
                 alt=""
               >
 
               <img
-                src="https://images.unsplash.com/photo-1507501336603-6e31db2be093?auto=format&fit=crop&w=500&q=80"
+                src="https://images.unsplash.com/photo-1507501336603-6e31db2be093?auto=format&fit=crop&w=500&q=85"
                 alt=""
               >
 
@@ -1537,10 +1577,11 @@
 
   </section>
 
+  <!-- EVENT STRIP -->
+
   <div class="event-strip">
 
     <div class="container event-strip-inner">
-
       <span>Bröllop</span><i>✦</i>
       <span>Dop</span><i>✦</i>
       <span>Student</span><i>✦</i>
@@ -1549,10 +1590,11 @@
       <span>Företagsevent</span><i>✦</i>
       <span>Konferens</span><i>✦</i>
       <span>Jubileum</span>
-
     </div>
 
   </div>
+
+  <!-- HOW -->
 
   <section class="how-section" id="how">
 
@@ -1583,12 +1625,10 @@
           <span class="step-number">01</span>
 
           <div class="step-icon">
-
             <svg viewBox="0 0 24 24">
               <path d="M5 4h14v16H5z"/>
               <path d="M8 8h8M8 12h8M8 16h5"/>
             </svg>
-
           </div>
 
           <h3>Du bokar tjänsten</h3>
@@ -1605,12 +1645,10 @@
           <span class="step-number">02</span>
 
           <div class="step-icon">
-
             <svg viewBox="0 0 24 24">
               <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4z"/>
               <path d="M14 14h2v2h-2zM18 14h2v6h-2zM14 18h2v2h-2z"/>
             </svg>
-
           </div>
 
           <h3>Vi skapar allt</h3>
@@ -1627,13 +1665,11 @@
           <span class="step-number">03</span>
 
           <div class="step-icon">
-
             <svg viewBox="0 0 24 24">
               <path d="M12 16V4"/>
               <path d="M8 8l4-4 4 4"/>
               <path d="M5 14v5h14v-5"/>
             </svg>
-
           </div>
 
           <h3>Gästerna laddar upp</h3>
@@ -1650,13 +1686,11 @@
           <span class="step-number">04</span>
 
           <div class="step-icon">
-
             <svg viewBox="0 0 24 24">
               <rect x="3" y="5" width="18" height="14" rx="2"/>
               <path d="M7 15l3-3 3 3 2-2 3 3"/>
               <circle cx="8" cy="9" r="1"/>
             </svg>
-
           </div>
 
           <h3>Du får alla minnen</h3>
@@ -1674,51 +1708,42 @@
 
   </section>
 
+  <!-- SERVICE -->
+
   <section id="service">
 
-    <div class="container done-grid">
+    <div class="container service-grid">
 
-      <div class="done-visual">
+      <div class="service-visual">
 
-        <div class="done-photo">
+        <div class="service-photo">
 
           <img
-            src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=85"
-            alt="Elegant eventdukning"
+            src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=88"
+            alt="Exklusiv festdukning"
           >
 
         </div>
 
-        <div class="floating-service-card">
+        <div class="floating-service">
 
           <strong>Vi sköter tekniken</strong>
 
           <p>
-            Du behöver bara berätta hur du vill att
-            ditt event ska kännas.
+            Du behöver bara berätta hur du vill
+            att ditt event ska kännas.
           </p>
 
-          <div class="service-check">
-            QR-kod
-          </div>
-
-          <div class="service-check">
-            Eventsida
-          </div>
-
-          <div class="service-check">
-            Bilduppladdning
-          </div>
-
-          <div class="service-check">
-            Privat galleri
-          </div>
+          <div class="service-check">QR-kod</div>
+          <div class="service-check">Eventsida</div>
+          <div class="service-check">Bilduppladdning</div>
+          <div class="service-check">Privat galleri</div>
 
         </div>
 
       </div>
 
-      <div class="done-copy">
+      <div class="service-copy">
 
         <p class="eyebrow">
           Du firar. Vi sköter tekniken.
@@ -1743,8 +1768,8 @@
             <div>
               <h3>Personlig design</h3>
               <p>
-                Sidan och QR-skylten anpassas efter eventets stil,
-                namn, datum och färger.
+                Sidan och QR-skylten anpassas efter eventets
+                stil, namn, datum och färger.
               </p>
             </div>
 
@@ -1794,6 +1819,8 @@
 
   </section>
 
+  <!-- PACKAGE -->
+
   <section class="package-section">
 
     <div class="container package-grid">
@@ -1809,8 +1836,8 @@
         </h2>
 
         <p>
-          Du slipper kombinera flera olika appar och tjänster.
-          Vi bygger en färdig lösning anpassad till ditt event.
+          Du slipper kombinera flera appar och tjänster.
+          Vi bygger en komplett lösning anpassad till ditt event.
         </p>
 
         <a href="#contact" class="button button-light">
@@ -1824,13 +1851,13 @@
         <article class="package-item">
           <span>01</span>
           <h3>Personlig QR-kod</h3>
-          <p>Unik QR-kod skapad för ditt event.</p>
+          <p>En unik QR-kod skapad för ditt event.</p>
         </article>
 
         <article class="package-item">
           <span>02</span>
           <h3>Designad QR-skylt</h3>
-          <p>Matchad med eventets färger och känsla.</p>
+          <p>Anpassad efter eventets färger och känsla.</p>
         </article>
 
         <article class="package-item">
@@ -1863,6 +1890,8 @@
 
   </section>
 
+  <!-- EVENTS -->
+
   <section id="events">
 
     <div class="container">
@@ -1870,27 +1899,31 @@
       <div class="section-heading">
 
         <p class="eyebrow">
-          För livets stora och små stunder
+          För exklusiva och minnesvärda tillfällen
         </p>
 
         <h2>
-          En färdig MemoryQR-lösning för varje event
+          En MemoryQR-lösning för varje event
         </h2>
 
         <p>
-          Samma enkla tjänst anpassas efter just ditt tillfälle,
-          från privata firanden till konferenser och företagsevent.
+          Varje sida och QR-skylt anpassas efter eventets känsla.
+          Från romantiska bröllop och eleganta jubileum
+          till professionella konferenser.
         </p>
 
       </div>
 
       <div class="event-grid">
 
+        <!-- BRÖLLOP -->
+
         <article class="event-card large">
 
           <img
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85"
-            alt="Bröllop"
+            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1500&q=90"
+            alt="Exklusivt bröllop"
+            onerror="imageFailed(this)"
           >
 
           <div class="event-copy">
@@ -1901,11 +1934,14 @@
 
         </article>
 
+        <!-- FÖDELSEDAG -->
+
         <article class="event-card">
 
           <img
-            src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=900&q=85"
-            alt="Födelsedag"
+            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=90"
+            alt="Elegant födelsedagstårta"
+            onerror="imageFailed(this)"
           >
 
           <div class="event-copy">
@@ -1916,26 +1952,32 @@
 
         </article>
 
+        <!-- DOP OCH BABY SHOWER -->
+
         <article class="event-card">
 
           <img
-            src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=900&q=85"
-            alt="Baby shower och dop"
+            src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=1000&q=90"
+            alt="Dop och baby shower"
+            onerror="imageFailed(this)"
           >
 
           <div class="event-copy">
             <span>03</span>
             <h3>Dop & baby shower</h3>
-            <p>Bevara de mjuka och fina ögonblicken.</p>
+            <p>Bevara de vackra och känslosamma ögonblicken.</p>
           </div>
 
         </article>
 
+        <!-- STUDENT -->
+
         <article class="event-card">
 
           <img
-            src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=85"
-            alt="Student"
+            src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1000&q=90"
+            alt="Studentfirande"
+            onerror="imageFailed(this)"
           >
 
           <div class="event-copy">
@@ -1946,11 +1988,14 @@
 
         </article>
 
+        <!-- FÖRETAGSEVENT -->
+
         <article class="event-card large">
 
           <img
-            src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1200&q=85"
-            alt="Företagsevent och konferens"
+            src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1500&q=90"
+            alt="Exklusiv konferens och företagsevent"
+            onerror="imageFailed(this)"
           >
 
           <div class="event-copy">
@@ -1961,11 +2006,49 @@
 
         </article>
 
+        <!-- JUBILEUM -->
+
+        <article class="event-card large">
+
+          <img
+            src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1500&q=90"
+            alt="Exklusivt jubileum och kvällsevent"
+            onerror="imageFailed(this)"
+          >
+
+          <div class="event-copy">
+            <span>06</span>
+            <h3>Jubileum & fest</h3>
+            <p>Samla kvällens stämning, människor och ögonblick.</p>
+          </div>
+
+        </article>
+
+        <!-- MIDDAG -->
+
+        <article class="event-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1000&q=90"
+            alt="Elegant middag och event"
+            onerror="imageFailed(this)"
+          >
+
+          <div class="event-copy">
+            <span>07</span>
+            <h3>Middag & gala</h3>
+            <p>En elegant lösning för exklusiva tillställningar.</p>
+          </div>
+
+        </article>
+
       </div>
 
     </div>
 
   </section>
+
+  <!-- SIMPLE -->
 
   <section>
 
@@ -2022,6 +2105,8 @@
 
   </section>
 
+  <!-- QUOTE -->
+
   <section class="quote-section">
 
     <div class="container">
@@ -2038,6 +2123,8 @@
     </div>
 
   </section>
+
+  <!-- CONTACT -->
 
   <section class="contact-section" id="contact">
 
@@ -2095,9 +2182,10 @@
               <option>Student</option>
               <option>Födelsedag</option>
               <option>Baby shower</option>
+              <option>Jubileum</option>
               <option>Företagsevent</option>
               <option>Konferens</option>
-              <option>Jubileum</option>
+              <option>Gala och middag</option>
               <option>Annat</option>
             </select>
           </label>
@@ -2226,6 +2314,16 @@
     formMessage.style.display = "block";
     contactForm.reset();
   });
+
+  function imageFailed(image){
+    const card = image.closest(".event-card");
+
+    if(card){
+      card.classList.add("image-error");
+    }
+
+    image.style.display = "none";
+  }
 </script>
 
 </body>
