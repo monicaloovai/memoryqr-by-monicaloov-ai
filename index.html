@@ -2,21 +2,16 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>MemoryQR by MonicaLoov.ai</title>
 
   <meta
     name="description"
-    content="MemoryQR är en komplett QR-tjänst för bröllop, födelsedagar, dop, student, baby shower, jubileum och företagsevent. Vi skapar QR-koden, eventsidan, uppladdningen och galleriet."
+    content="MemoryQR är en komplett QR-tjänst för bröllop, dop, student, födelsedag, baby shower, jubileum, företagsevent och konferenser. Vi skapar QR-koden, eventsidan, uppladdningen och det privata galleriet."
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
@@ -26,17 +21,17 @@
 
   <style>
     :root{
-      --cream:#f5f0e8;
-      --paper:#fcfaf6;
-      --sand:#e8ded1;
-      --gold:#ad8758;
-      --gold-light:#d7bd98;
-      --black:#171512;
-      --dark:#211d18;
-      --grey:#706960;
-      --line:rgba(23,21,18,.13);
+      --cream:#f4efe7;
+      --paper:#fbf8f2;
+      --sand:#e7dccf;
+      --gold:#a98252;
+      --gold-light:#d8bd94;
+      --black:#151310;
+      --dark:#211c17;
+      --grey:#6b645b;
+      --line:rgba(21,19,16,.13);
       --white:#ffffff;
-      --shadow:0 28px 80px rgba(48,37,26,.14);
+      --shadow:0 30px 90px rgba(44,34,24,.16);
     }
 
     *{
@@ -159,9 +154,9 @@
       left:0;
       right:0;
       z-index:1000;
-      background:rgba(245,240,232,.92);
+      background:rgba(244,239,231,.93);
       border-bottom:1px solid var(--line);
-      backdrop-filter:blur(18px);
+      backdrop-filter:blur(20px);
     }
 
     .header-inner{
@@ -179,8 +174,8 @@
     }
 
     .brand-mark{
-      width:44px;
-      height:44px;
+      width:46px;
+      height:46px;
       display:grid;
       place-items:center;
       border:1px solid var(--gold);
@@ -198,15 +193,15 @@
 
     .brand-copy strong{
       font-family:"Playfair Display",serif;
-      font-size:23px;
+      font-size:24px;
       font-weight:600;
     }
 
     .brand-copy span{
       margin-top:5px;
       color:var(--grey);
-      font-size:10px;
-      letter-spacing:.15em;
+      font-size:9px;
+      letter-spacing:.17em;
       text-transform:uppercase;
     }
 
@@ -264,11 +259,11 @@
     .hero::before{
       content:"";
       position:absolute;
-      width:560px;
-      height:560px;
-      left:-380px;
-      top:160px;
-      border:1px solid rgba(173,135,88,.22);
+      width:580px;
+      height:580px;
+      left:-400px;
+      top:140px;
+      border:1px solid rgba(169,130,82,.24);
       border-radius:50%;
     }
 
@@ -303,7 +298,7 @@
       margin-top:25px;
       padding:19px 22px;
       border-left:2px solid var(--gold);
-      background:rgba(252,250,246,.55);
+      background:rgba(251,248,242,.65);
       color:var(--black);
       font-weight:500;
     }
@@ -351,14 +346,14 @@
 
     .visual-glow{
       position:absolute;
-      width:560px;
-      height:560px;
+      width:570px;
+      height:570px;
       border-radius:50%;
       background:
         radial-gradient(
           circle,
-          rgba(219,203,181,.9),
-          rgba(245,240,232,.04) 68%
+          rgba(219,202,179,.94),
+          rgba(244,239,231,.04) 68%
         );
     }
 
@@ -367,7 +362,7 @@
       z-index:4;
       width:400px;
       padding:44px 40px;
-      border:1px solid rgba(173,135,88,.36);
+      border:1px solid rgba(169,130,82,.38);
       border-radius:30px;
       background:var(--paper);
       text-align:center;
@@ -463,6 +458,7 @@
       height:80px;
       border-radius:8px;
       object-fit:cover;
+      filter:saturate(.75) contrast(1.05);
     }
 
     .mini-upload{
@@ -584,7 +580,7 @@
       flex-direction:column;
       border:1px solid var(--line);
       border-radius:24px;
-      background:rgba(255,255,255,.42);
+      background:rgba(255,255,255,.45);
       transition:.25s ease;
     }
 
@@ -657,17 +653,19 @@
       width:100%;
       height:100%;
       object-fit:cover;
+      filter:saturate(.75) contrast(1.04);
     }
 
     .service-photo::after{
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(
-        to top,
-        rgba(20,17,14,.28),
-        transparent 55%
-      );
+      background:
+        linear-gradient(
+          to top,
+          rgba(20,17,14,.34),
+          transparent 58%
+        );
     }
 
     .floating-service{
@@ -811,22 +809,32 @@
       font-size:13px;
     }
 
-    /* EXCLUSIVE EVENT CARDS */
+    /* EVENTS */
+
+    .events-section{
+      background:#efe8de;
+    }
 
     .event-grid{
       display:grid;
       grid-template-columns:repeat(12,1fr);
-      gap:18px;
+      gap:20px;
     }
 
     .event-card{
-      min-height:430px;
+      min-height:450px;
       position:relative;
       overflow:hidden;
       grid-column:span 4;
-      border-radius:26px;
+      border-radius:28px;
       background:
-        linear-gradient(145deg,#625346,#191714);
+        radial-gradient(
+          circle at 75% 20%,
+          rgba(183,145,95,.35),
+          transparent 35%
+        ),
+        linear-gradient(145deg,#6b5948,#181512 75%);
+      box-shadow:0 22px 55px rgba(33,26,19,.13);
     }
 
     .event-card.large{
@@ -834,15 +842,27 @@
     }
 
     .event-card img{
+      position:absolute;
+      inset:0;
       width:100%;
       height:100%;
       object-fit:cover;
       object-position:center;
-      transition:transform .8s ease;
+      filter:
+        saturate(.72)
+        contrast(1.08)
+        brightness(.9);
+      transition:
+        transform .8s ease,
+        filter .8s ease;
     }
 
     .event-card:hover img{
       transform:scale(1.055);
+      filter:
+        saturate(.86)
+        contrast(1.06)
+        brightness(.96);
     }
 
     .event-card::before{
@@ -853,8 +873,8 @@
       background:
         linear-gradient(
           to top,
-          rgba(14,12,10,.93),
-          rgba(14,12,10,.08) 68%
+          rgba(12,10,8,.95),
+          rgba(12,10,8,.1) 68%
         );
       pointer-events:none;
     }
@@ -862,18 +882,18 @@
     .event-card::after{
       content:"";
       position:absolute;
-      inset:16px;
-      z-index:1;
-      border:1px solid rgba(255,255,255,.19);
-      border-radius:17px;
+      inset:17px;
+      z-index:2;
+      border:1px solid rgba(255,255,255,.2);
+      border-radius:18px;
       pointer-events:none;
     }
 
     .event-copy{
       position:absolute;
-      left:38px;
-      right:38px;
-      bottom:35px;
+      left:40px;
+      right:40px;
+      bottom:38px;
       z-index:3;
       color:white;
     }
@@ -885,37 +905,59 @@
     }
 
     .event-copy h3{
-      margin-top:6px;
-      font-size:34px;
+      margin-top:7px;
+      font-size:35px;
+      line-height:1.1;
     }
 
     .event-copy p{
-      margin-top:6px;
-      color:rgba(255,255,255,.73);
+      margin-top:8px;
+      max-width:500px;
+      color:rgba(255,255,255,.76);
       font-size:13px;
     }
 
-    /* IMAGE FALLBACK */
-
     .event-card.image-error img{
-      opacity:0;
+      display:none;
     }
 
-    .event-card.image-error::before{
+    .wedding-card{
       background:
-        radial-gradient(
-          circle at 70% 20%,
-          rgba(173,135,88,.35),
-          transparent 35%
-        ),
-        linear-gradient(
-          145deg,
-          #75614d,
-          #171512 74%
-        );
+        radial-gradient(circle at 72% 22%,rgba(238,222,199,.3),transparent 28%),
+        linear-gradient(140deg,#88705b,#211a15 73%);
     }
 
-    /* SIMPLE PANEL */
+    .birthday-card{
+      background:
+        radial-gradient(circle at 70% 20%,rgba(210,166,103,.38),transparent 32%),
+        linear-gradient(145deg,#6e4e3e,#181310 75%);
+    }
+
+    .baby-card{
+      background:
+        radial-gradient(circle at 70% 20%,rgba(238,216,198,.4),transparent 35%),
+        linear-gradient(145deg,#9b8570,#2b231d 77%);
+    }
+
+    .student-card{
+      background:
+        radial-gradient(circle at 70% 20%,rgba(190,156,105,.35),transparent 30%),
+        linear-gradient(145deg,#544a40,#151310 78%);
+    }
+
+    .business-card{
+      background:
+        radial-gradient(circle at 76% 20%,rgba(178,142,91,.36),transparent 32%),
+        linear-gradient(145deg,#4c4843,#11100e 78%);
+    }
+
+    .gala-card{
+      background:
+        radial-gradient(circle at 75% 20%,rgba(206,161,95,.4),transparent 32%),
+        linear-gradient(145deg,#654a37,#15110e 78%);
+    }
+
+    /* SIMPLE */
 
     .simple-panel{
       padding:78px;
@@ -1338,13 +1380,17 @@
       .event-card,
       .event-card.large{
         grid-column:auto;
-        min-height:390px;
+        min-height:410px;
       }
 
       .event-copy{
-        left:32px;
-        right:32px;
-        bottom:31px;
+        left:34px;
+        right:34px;
+        bottom:33px;
+      }
+
+      .event-copy h3{
+        font-size:31px;
       }
 
       .simple-panel{
@@ -1419,8 +1465,6 @@
 </header>
 
 <main id="top">
-
-  <!-- HERO -->
 
   <section class="hero">
 
@@ -1527,6 +1571,11 @@
             <div class="mini-gallery">
 
               <img
+                src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=500&q=85"
+                alt=""
+              >
+
+              <img
                 src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=85"
                 alt=""
               >
@@ -1537,12 +1586,7 @@
               >
 
               <img
-                src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=500&q=85"
-                alt=""
-              >
-
-              <img
-                src="https://images.unsplash.com/photo-1507501336603-6e31db2be093?auto=format&fit=crop&w=500&q=85"
+                src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=85"
                 alt=""
               >
 
@@ -1577,8 +1621,6 @@
 
   </section>
 
-  <!-- EVENT STRIP -->
-
   <div class="event-strip">
 
     <div class="container event-strip-inner">
@@ -1593,8 +1635,6 @@
     </div>
 
   </div>
-
-  <!-- HOW -->
 
   <section class="how-section" id="how">
 
@@ -1708,8 +1748,6 @@
 
   </section>
 
-  <!-- SERVICE -->
-
   <section id="service">
 
     <div class="container service-grid">
@@ -1719,7 +1757,7 @@
         <div class="service-photo">
 
           <img
-            src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=88"
+            src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1500&q=90"
             alt="Exklusiv festdukning"
           >
 
@@ -1734,8 +1772,8 @@
             att ditt event ska kännas.
           </p>
 
-          <div class="service-check">QR-kod</div>
-          <div class="service-check">Eventsida</div>
+          <div class="service-check">Personlig QR-kod</div>
+          <div class="service-check">Designad eventsida</div>
           <div class="service-check">Bilduppladdning</div>
           <div class="service-check">Privat galleri</div>
 
@@ -1819,8 +1857,6 @@
 
   </section>
 
-  <!-- PACKAGE -->
-
   <section class="package-section">
 
     <div class="container package-grid">
@@ -1890,9 +1926,7 @@
 
   </section>
 
-  <!-- EVENTS -->
-
-  <section id="events">
+  <section class="events-section" id="events">
 
     <div class="container">
 
@@ -1907,21 +1941,18 @@
         </h2>
 
         <p>
-          Varje sida och QR-skylt anpassas efter eventets känsla.
           Från romantiska bröllop och eleganta jubileum
-          till professionella konferenser.
+          till studentfiranden, galamiddagar och professionella event.
         </p>
 
       </div>
 
       <div class="event-grid">
 
-        <!-- BRÖLLOP -->
-
-        <article class="event-card large">
+        <article class="event-card large wedding-card">
 
           <img
-            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1500&q=90"
+            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=90"
             alt="Exklusivt bröllop"
             onerror="imageFailed(this)"
           >
@@ -1929,71 +1960,74 @@
           <div class="event-copy">
             <span>01</span>
             <h3>Bröllop</h3>
-            <p>Samla hela dagen ur gästernas perspektiv.</p>
+            <p>
+              En elegant lösning som samlar hela dagen
+              ur gästernas perspektiv.
+            </p>
           </div>
 
         </article>
 
-        <!-- FÖDELSEDAG -->
-
-        <article class="event-card">
+        <article class="event-card birthday-card">
 
           <img
-            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=90"
-            alt="Elegant födelsedagstårta"
+            src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1100&q=90"
+            alt="Exklusiv födelsedagsfest"
             onerror="imageFailed(this)"
           >
 
           <div class="event-copy">
             <span>02</span>
             <h3>Födelsedag</h3>
-            <p>Alla skratt och överraskningar på samma plats.</p>
+            <p>
+              Alla skratt, överraskningar och detaljer
+              samlade på samma plats.
+            </p>
           </div>
 
         </article>
 
-        <!-- DOP OCH BABY SHOWER -->
-
-        <article class="event-card">
+        <article class="event-card baby-card">
 
           <img
-            src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=1000&q=90"
-            alt="Dop och baby shower"
+            src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=1100&q=90"
+            alt="Elegant baby shower och dop"
             onerror="imageFailed(this)"
           >
 
           <div class="event-copy">
             <span>03</span>
             <h3>Dop & baby shower</h3>
-            <p>Bevara de vackra och känslosamma ögonblicken.</p>
+            <p>
+              Bevara de mjuka, personliga och känslosamma ögonblicken.
+            </p>
           </div>
 
         </article>
 
-        <!-- STUDENT -->
-
-        <article class="event-card">
+        <article class="event-card student-card">
 
           <img
-            src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1000&q=90"
-            alt="Studentfirande"
+            src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1100&q=90"
+            alt="Exklusivt studentfirande"
             onerror="imageFailed(this)"
           >
 
           <div class="event-copy">
             <span>04</span>
             <h3>Student</h3>
-            <p>Från utspringet till kvällens sista dans.</p>
+            <p>
+              Från utspringet och mottagningen
+              till kvällens sista dans.
+            </p>
           </div>
 
         </article>
 
-        <!-- FÖRETAGSEVENT -->
-
-        <article class="event-card large">
+        <article class="event-card large business-card">
 
           <img
-            src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1500&q=90"
+            src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1600&q=90"
             alt="Exklusiv konferens och företagsevent"
             onerror="imageFailed(this)"
           >
@@ -2001,43 +2035,48 @@
           <div class="event-copy">
             <span>05</span>
             <h3>Företagsevent & konferens</h3>
-            <p>Samla innehåll och minnen från hela upplevelsen.</p>
+            <p>
+              Samla innehåll, människor och upplevelser
+              från hela eventet.
+            </p>
           </div>
 
         </article>
 
-        <!-- JUBILEUM -->
-
-        <article class="event-card large">
+        <article class="event-card large gala-card">
 
           <img
-            src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1500&q=90"
-            alt="Exklusivt jubileum och kvällsevent"
+            src="https://images.unsplash.com/photo-1496337589254-7e19d01cec44?auto=format&fit=crop&w=1600&q=90"
+            alt="Lyxig gala och jubileumsfest"
             onerror="imageFailed(this)"
           >
 
           <div class="event-copy">
             <span>06</span>
-            <h3>Jubileum & fest</h3>
-            <p>Samla kvällens stämning, människor och ögonblick.</p>
+            <h3>Jubileum & gala</h3>
+            <p>
+              Ett exklusivt digitalt minne från
+              kvällens stämning, människor och ögonblick.
+            </p>
           </div>
 
         </article>
 
-        <!-- MIDDAG -->
-
-        <article class="event-card">
+        <article class="event-card birthday-card">
 
           <img
-            src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1000&q=90"
-            alt="Elegant middag och event"
+            src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1100&q=90"
+            alt="Elegant middag och fest"
             onerror="imageFailed(this)"
           >
 
           <div class="event-copy">
             <span>07</span>
-            <h3>Middag & gala</h3>
-            <p>En elegant lösning för exklusiva tillställningar.</p>
+            <h3>Middag & fest</h3>
+            <p>
+              Perfekt för eleganta middagar,
+              privata fester och exklusiva tillställningar.
+            </p>
           </div>
 
         </article>
@@ -2047,8 +2086,6 @@
     </div>
 
   </section>
-
-  <!-- SIMPLE -->
 
   <section>
 
@@ -2105,8 +2142,6 @@
 
   </section>
 
-  <!-- QUOTE -->
-
   <section class="quote-section">
 
     <div class="container">
@@ -2123,8 +2158,6 @@
     </div>
 
   </section>
-
-  <!-- CONTACT -->
 
   <section class="contact-section" id="contact">
 
@@ -2322,7 +2355,7 @@
       card.classList.add("image-error");
     }
 
-    image.style.display = "none";
+    image.remove();
   }
 </script>
 
