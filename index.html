@@ -4,1359 +4,277 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MemoryQR by MonicaLoov.ai</title>
-
-  <meta
-    name="description"
-    content="MemoryQR är en exklusiv tjänst för bröllop, födelsedag, baby shower, förlovning och företagsevent. Vi skapar QR-koden, eventsidan, bilduppladdningen och det privata galleriet där alla bilder samlas på samma plats."
-  />
-
+  <meta name="description" content="MemoryQR är en exklusiv QR-tjänst för bröllop, födelsedag, baby shower, förlovning och företagsevent. Gästerna laddar upp bilder och filmer, och alla minnen samlas på samma plats." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
-    rel="stylesheet"
-  >
-
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --cream:#f3f3f1;
-      --paper:#ffffff;
-      --soft:#dedede;
-      --gold:#1a1a1a;
-      --gold-light:#777777;
+      --white:#ffffff;
+      --off:#f4f4f2;
       --ink:#111111;
-      --muted:#5f5f5f;
-      --line:rgba(17,17,17,.14);
-      --shadow:0 28px 90px rgba(0,0,0,.16);
-    }
-
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family:"DM Sans",sans-serif;
-      background:var(--cream);
-      color:var(--ink);
-      overflow-x:hidden;
-    }
-
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
-
-    button,
-    input,
-    select,
-    textarea{
-      font:inherit;
-    }
-
-    .wrap{
-      width:min(1180px,calc(100% - 34px));
-      margin:auto;
-    }
-
-    h1,
-    h2,
-    h3,
-    blockquote{
-      font-family:"Playfair Display",serif;
-      font-weight:500;
-    }
-
-    .eyebrow{
-      font-size:11px;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      color:var(--gold);
-      font-weight:600;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:54px;
-      padding:0 28px;
-      border-radius:999px;
-      border:1px solid transparent;
-      font-weight:600;
-      cursor:pointer;
-      transition:.2s ease;
-    }
-
-    .btn-dark{
-      background:var(--ink);
-      color:#fff;
-    }
-
-    .btn-dark:hover{
-      background:#333;
-      transform:translateY(-2px);
-    }
-
-    .btn-light{
-      background:rgba(255,255,255,.82);
-      backdrop-filter:blur(10px);
-      border-color:rgba(255,255,255,.35);
-    }
-
-    header{
-      position:fixed;
-      top:0;
-      left:0;
-      right:0;
-      z-index:100;
-      background:rgba(255,255,255,.78);
-      backdrop-filter:blur(18px);
-      border-bottom:1px solid var(--line);
-    }
-
-    .nav{
-      min-height:78px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:24px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .mark{
-      width:42px;
-      height:42px;
-      border:1px solid var(--gold);
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      color:var(--gold);
-      font:500 21px "Playfair Display",serif;
-    }
-
-    .brand-copy strong{
-      display:block;
-      font:600 22px "Playfair Display",serif;
-      line-height:1.02;
-    }
-
-    .brand-copy span{
-      display:block;
-      margin-top:5px;
-      color:var(--muted);
-      font-size:9px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-    }
-
-    .links{
-      display:flex;
-      align-items:center;
-      gap:28px;
-      font-size:14px;
-    }
-
-    .links a:hover{
-      color:#555;
-    }
-
-    .screen{
-      min-height:100vh;
-      padding:112px 0 44px;
-      display:flex;
-      align-items:center;
-      position:relative;
-    }
-
-    .hero{
-      background:
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,.84) 0%,
-          rgba(255,255,255,.68) 40%,
-          rgba(255,255,255,.20) 68%,
-          rgba(255,255,255,.06) 100%
-        ),
-        url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=90")
-        center/cover no-repeat;
-    }
-
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(
-          180deg,
-          rgba(0,0,0,.02),
-          rgba(0,0,0,.18) 100%
-        );
-      pointer-events:none;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.02fr .98fr;
-      gap:58px;
-      align-items:center;
-      position:relative;
-      z-index:2;
-    }
-
-    .hero h1{
-      font-size:clamp(48px,6.9vw,86px);
-      line-height:.98;
-      letter-spacing:-.04em;
-      max-width:760px;
-      margin-top:18px;
-    }
-
-    .hero h1 em{
-      color:var(--gold);
-      font-weight:500;
-    }
-
-    .lead{
-      max-width:640px;
-      margin-top:24px;
-      color:var(--muted);
-      font-size:18px;
-      line-height:1.82;
-    }
-
-    .hero-actions{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      margin-top:32px;
-    }
-
-    .hero-points{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      margin-top:30px;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    .hero-points span::before{
-      content:"✦";
-      color:var(--gold);
-      margin-right:8px;
-    }
-
-    .event-types{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:22px;
-    }
-
-    .event-types span{
-      padding:9px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.64);
-      border:1px solid rgba(17,17,17,.14);
-      color:var(--ink);
-      font-size:12px;
-      backdrop-filter:blur(8px);
-    }
-
-    .hero-card{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    }
-
-    .feature-card{
-      width:min(448px,100%);
-      padding:34px;
-      border-radius:30px;
-      background:rgba(255,255,255,.78);
-      border:1px solid rgba(17,17,17,.14);
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(13px);
-    }
-
-    .feature-card h2{
-      font-size:38px;
-      line-height:1.08;
-      margin-top:12px;
-    }
-
-    .feature-card > p{
-      margin-top:12px;
-      color:var(--muted);
-      line-height:1.7;
-    }
-
-    .qr-preview{
-      display:grid;
-      grid-template-columns:130px 1fr;
-      gap:18px;
-      align-items:center;
-      margin-top:24px;
-      padding:18px;
-      border-radius:22px;
-      background:rgba(245,245,245,.88);
-    }
-
-    .qr-box{
-      width:130px;
-      height:130px;
-      padding:12px;
-      border-radius:16px;
-      background:#fff;
-      box-shadow:0 10px 25px rgba(0,0,0,.08);
-    }
-
-    .qr-box svg{
-      width:100%;
-      height:100%;
-    }
-
-    .qr-copy strong{
-      display:block;
-      font:500 25px "Playfair Display",serif;
-      line-height:1.1;
-    }
-
-    .qr-copy p{
-      margin-top:7px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.6;
-    }
-
-    .mini-list{
-      margin-top:20px;
-    }
-
-    .mini-item{
-      display:grid;
-      grid-template-columns:36px 1fr;
-      gap:14px;
-      padding:14px 0;
-      border-top:1px solid var(--line);
-    }
-
-    .mini-item:first-child{
-      border-top:0;
-    }
-
-    .mini-item span{
-      width:30px;
-      height:30px;
-      display:grid;
-      place-items:center;
-      border-radius:50%;
-      background:var(--ink);
-      color:#fff;
-      font-size:11px;
-    }
-
-    .mini-item strong{
-      display:block;
-      font:500 19px "Playfair Display",serif;
-    }
-
-    .mini-item p{
-      margin-top:3px;
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.55;
-    }
-
-    .second{
-      min-height:auto;
-      background:
-        linear-gradient(
-          180deg,
-          rgba(15,15,15,.86) 0 48%,
-          rgba(245,245,245,.90) 48% 100%
-        ),
-        url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1800&q=90")
-        center/cover no-repeat;
-      padding-top:82px;
-      padding-bottom:46px;
-    }
-
-    .second-grid{
-      display:grid;
-      grid-template-columns:.92fr 1.08fr;
-      gap:54px;
-      align-items:start;
-    }
-
-    .service-panel{
-      color:#fff;
-      padding-top:12px;
-    }
-
-    .service-panel h2{
-      font-size:clamp(34px,4.2vw,54px);
-      line-height:1.08;
-      margin-top:14px;
-      max-width:560px;
-    }
-
-    .service-panel > p:not(.eyebrow){
-      margin-top:16px;
-      color:rgba(255,255,255,.70);
-      line-height:1.7;
-      font-size:15px;
-      max-width:560px;
-    }
-
-    .service-list{
-      margin-top:22px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-    }
-
-    .service-list article{
-      padding:16px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.05);
-    }
-
-    .service-list strong{
-      display:block;
-      font:500 18px "Playfair Display",serif;
-      margin-bottom:5px;
-    }
-
-    .service-list p{
-      color:rgba(255,255,255,.68);
-      font-size:13px;
-      line-height:1.55;
-    }
-
-    .highlight-box{
-      margin-top:18px;
-      padding:15px 17px;
-      border-radius:18px;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.10);
-    }
-
-    .highlight-box strong{
-      display:block;
-      font:500 19px "Playfair Display",serif;
-    }
-
-    .highlight-box p{
-      margin-top:7px;
-      color:rgba(255,255,255,.70);
-      font-size:13px;
-      line-height:1.65;
-    }
-
-    .right-stack{
-      display:grid;
-      gap:22px;
-    }
-
-    .contact-box{
-      background:var(--paper);
-      border-radius:24px;
-      padding:24px;
-      box-shadow:var(--shadow);
-    }
-
-    .contact-box h3{
-      font-size:27px;
-    }
-
-    .contact-box p{
-      margin-top:8px;
-      color:var(--muted);
-      line-height:1.58;
-      font-size:14px;
-    }
-
-    .contact-info{
-      margin-top:14px;
-      padding:13px 15px;
-      border-radius:16px;
-      background:#f1f1f1;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.6;
-    }
-
-    .contact-info strong{
-      display:block;
-      color:var(--ink);
-      font:500 18px "Playfair Display",serif;
-      margin-bottom:6px;
-    }
-
-    .form-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:11px;
-      margin-top:17px;
-    }
-
-    .field{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-
-    .field.full{
-      grid-column:1/-1;
-    }
-
-    .field label{
-      font-size:11px;
-      color:var(--muted);
-    }
-
-    .field input,
-    .field select,
-    .field textarea{
-      border:1px solid var(--line);
-      background:#fff;
-      border-radius:12px;
-      padding:10px 11px;
-      outline:none;
-    }
-
-    .field textarea{
-      min-height:72px;
-      resize:vertical;
-    }
-
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus{
-      border-color:#333;
-    }
-
-    .form-actions{
-      grid-column:1/-1;
-      display:flex;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;
-    }
-
-    .status{
-      display:none;
-      color:#333;
-      font-size:12px;
-    }
-
-    .reviews-section{
-      padding:84px 0;
-      background:#f6f6f4;
-    }
-
-    .reviews-heading{
-      text-align:center;
-      max-width:760px;
-      margin:0 auto 34px;
-    }
-
-    .reviews-heading h2{
-      font-size:clamp(38px,5vw,60px);
-      line-height:1.08;
-      margin-top:12px;
-    }
-
-    .reviews-heading p{
-      margin-top:14px;
-      color:var(--muted);
-      line-height:1.7;
-    }
-
-    .reviews-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
-    .review-card{
-      background:var(--paper);
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:28px;
-      box-shadow:0 18px 55px rgba(0,0,0,.08);
-    }
-
-    .stars{
-      color:var(--gold);
-      letter-spacing:.14em;
-    }
-
-    .review-card blockquote{
-      margin-top:18px;
-      font-size:21px;
-      line-height:1.48;
-      font-style:italic;
-    }
-
-    .review-card footer{
-      margin-top:18px;
-      color:var(--muted);
-      font-size:12px;
-    }
-
-    .footer{
-      padding:22px 0;
-      background:var(--ink);
-      color:rgba(255,255,255,.66);
-      font-size:11px;
-    }
-
-    .footer-inner{
-      display:flex;
-      justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
-    }
+      --muted:#666666;
+      --line:rgba(17,17,17,.13);
+      --glass:rgba(255,255,255,.82);
+      --shadow:0 24px 70px rgba(0,0,0,.14);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"DM Sans",sans-serif;background:var(--off);color:var(--ink);overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    button,input,select,textarea{font:inherit}
+    h1,h2,h3,blockquote{font-family:"Playfair Display",serif;font-weight:500}
+    .wrap{width:min(1180px,calc(100% - 34px));margin:auto}
+    .eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;border-radius:999px;border:1px solid transparent;font-weight:600;cursor:pointer;transition:.2s ease}
+    .btn-dark{background:var(--ink);color:#fff}
+    .btn-dark:hover{background:#333;transform:translateY(-2px)}
+    .btn-light{background:rgba(255,255,255,.78);border-color:rgba(17,17,17,.14);backdrop-filter:blur(10px)}
+
+    header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .mark{width:42px;height:42px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;font:500 21px "Playfair Display",serif}
+    .brand-copy strong{display:block;font:600 22px "Playfair Display",serif;line-height:1.02}
+    .brand-copy span{display:block;margin-top:5px;color:var(--muted);font-size:9px;letter-spacing:.14em;text-transform:uppercase}
+    .links{display:flex;align-items:center;gap:28px;font-size:14px}
+
+    .hero{min-height:100vh;padding:112px 0 44px;display:flex;align-items:center;position:relative;background:
+      linear-gradient(90deg,rgba(255,255,255,.88) 0%,rgba(255,255,255,.72) 39%,rgba(255,255,255,.22) 68%,rgba(255,255,255,.06) 100%),
+      url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=90") center/cover no-repeat;
+    }
+    .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.16));pointer-events:none}
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:58px;align-items:center;position:relative;z-index:2}
+    .hero h1{font-size:clamp(48px,6.7vw,84px);line-height:.98;letter-spacing:-.04em;max-width:760px;margin-top:18px}
+    .hero h1 em{font-style:normal;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:8px}
+    .lead{max-width:640px;margin-top:24px;color:var(--muted);font-size:18px;line-height:1.82}
+    .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:30px}
+    .hero-points,.event-types{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    .hero-points span,.event-types span{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.66);border:1px solid rgba(17,17,17,.12);font-size:12px;backdrop-filter:blur(8px)}
+
+    .feature-card{width:min(440px,100%);margin-left:auto;padding:30px;border-radius:28px;background:rgba(255,255,255,.80);border:1px solid rgba(17,17,17,.13);box-shadow:var(--shadow);backdrop-filter:blur(14px)}
+    .feature-card h2{font-size:36px;line-height:1.08;margin-top:10px}
+    .feature-card>p{margin-top:12px;color:var(--muted);line-height:1.65}
+    .qr-preview{display:grid;grid-template-columns:118px 1fr;gap:18px;align-items:center;margin-top:22px;padding:16px;border-radius:20px;background:#f3f3f1}
+    .qr-box{width:118px;height:118px;padding:10px;border-radius:14px;background:#fff;box-shadow:0 10px 24px rgba(0,0,0,.07)}
+    .qr-box svg{width:100%;height:100%}
+    .qr-copy strong{display:block;font:500 24px "Playfair Display",serif;line-height:1.1}
+    .qr-copy p{margin-top:6px;color:var(--muted);font-size:12px;line-height:1.55}
+    .mini-list{margin-top:18px}
+    .mini-item{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+    .mini-item:first-child{border-top:0}
+    .mini-item span{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--ink);color:#fff;font-size:10px}
+    .mini-item strong{display:block;font:500 18px "Playfair Display",serif}
+    .mini-item p{margin-top:3px;color:var(--muted);font-size:12px;line-height:1.5}
+
+    .service-section{padding:88px 0;background:
+      linear-gradient(90deg,rgba(12,12,12,.90),rgba(12,12,12,.76)),
+      url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1800&q=90") center/cover no-repeat;
+    }
+    .service-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px;align-items:center}
+    .service-copy{color:#fff}
+    .service-copy .eyebrow{color:rgba(255,255,255,.72)}
+    .service-copy h2{font-size:clamp(38px,4.7vw,58px);line-height:1.07;margin-top:14px;max-width:620px}
+    .service-copy>p{margin-top:18px;color:rgba(255,255,255,.70);line-height:1.72;max-width:600px}
+    .service-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+    .service-list article{padding:17px;border:1px solid rgba(255,255,255,.14);border-radius:17px;background:rgba(255,255,255,.05)}
+    .service-list strong{display:block;font:500 19px "Playfair Display",serif;margin-bottom:5px}
+    .service-list p{color:rgba(255,255,255,.68);font-size:12px;line-height:1.55}
+
+    .contact-box{background:rgba(255,255,255,.94);border-radius:26px;padding:26px;box-shadow:var(--shadow)}
+    .contact-box h3{font-size:30px;margin-top:8px}
+    .contact-box>p{margin-top:8px;color:var(--muted);line-height:1.6;font-size:14px}
+    .contact-info{margin-top:14px;padding:13px 15px;border-radius:14px;background:#f2f2f0;color:var(--muted);font-size:12px;line-height:1.6}
+    .contact-info strong{display:block;color:var(--ink);font:500 18px "Playfair Display",serif;margin-bottom:5px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:16px}
+    .field{display:flex;flex-direction:column;gap:5px}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:11px;color:var(--muted)}
+    .field input,.field select,.field textarea{border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px 11px;outline:none}
+    .field textarea{min-height:72px;resize:vertical}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:#333}
+    .form-actions{grid-column:1/-1;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .status{display:none;color:#333;font-size:12px}
+
+    .reviews-section{padding:78px 0;background:#f6f6f4}
+    .reviews-heading{text-align:center;max-width:740px;margin:0 auto 32px}
+    .reviews-heading h2{font-size:clamp(36px,4.7vw,56px);line-height:1.08;margin-top:10px}
+    .reviews-heading p{margin-top:12px;color:var(--muted);line-height:1.65}
+    .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .review-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 15px 45px rgba(0,0,0,.07)}
+    .stars{letter-spacing:.14em}
+    .review-card blockquote{margin-top:16px;font-size:20px;line-height:1.46;font-style:italic}
+    .review-card footer{margin-top:16px;color:var(--muted);font-size:12px}
+
+    .footer{padding:22px 0;background:var(--ink);color:rgba(255,255,255,.66);font-size:11px}
+    .footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
 
     @media(max-width:920px){
-      header{
-        position:sticky;
+      header{position:sticky}
+      .links a:not(.nav-cta){display:none}
+      .hero-grid,.service-grid{grid-template-columns:1fr}
+      .hero{text-align:center;background:
+        linear-gradient(180deg,rgba(255,255,255,.84) 0%,rgba(255,255,255,.66) 42%,rgba(255,255,255,.18) 100%),
+        url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=90") center/cover no-repeat;
       }
-
-      .links a:not(.nav-cta){
-        display:none;
-      }
-
-      .hero-grid,
-      .second-grid{
-        grid-template-columns:1fr;
-      }
-
-      .hero{
-        text-align:center;
-        background:
-          linear-gradient(
-            180deg,
-            rgba(255,255,255,.82) 0%,
-            rgba(255,255,255,.64) 40%,
-            rgba(255,255,255,.18) 100%
-          ),
-          url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=90")
-          center/cover no-repeat;
-      }
-
-      .lead{
-        margin-left:auto;
-        margin-right:auto;
-      }
-
-      .hero-actions,
-      .hero-points,
-      .event-types{
-        justify-content:center;
-      }
-
-      .feature-card{
-        margin:auto;
-      }
-
-      .service-panel{
-        text-align:center;
-      }
-
-      .service-list{
-        grid-template-columns:1fr 1fr;
-      }
+      .lead{margin-left:auto;margin-right:auto}
+      .hero-actions,.hero-points,.event-types{justify-content:center}
+      .feature-card{margin:auto}
+      .service-copy{text-align:center}
+      .service-copy h2,.service-copy>p{margin-left:auto;margin-right:auto}
     }
 
     @media(max-width:620px){
-      .screen{
-        min-height:auto;
-        padding:76px 0 32px;
-      }
-
-      .hero h1{
-        font-size:40px;
-      }
-
-      .hero-actions{
-        flex-direction:column;
-      }
-
-      .btn{
-        width:100%;
-      }
-
-      .feature-card{
-        padding:24px;
-      }
-
-      .qr-preview{
-        grid-template-columns:1fr;
-        justify-items:center;
-        text-align:center;
-      }
-
-      .second{
-        min-height:auto;
-        background:
-          linear-gradient(
-            180deg,
-            rgba(15,15,15,.88) 0 40%,
-            rgba(245,245,245,.92) 40% 100%
-          ),
-          url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1800&q=90")
-          center/cover no-repeat;
-      }
-
-      .service-list,
-      .form-grid{
-        grid-template-columns:1fr;
-      }
-
-      .contact-box{
-        padding:22px;
-      }
-
-      .reviews-grid{
-        grid-template-columns:1fr;
-      }
-
-      .review-card blockquote{
-        font-size:20px;
-      }
-
-      .form-actions{
-        flex-direction:column;
-        align-items:stretch;
-      }
+      .hero{min-height:auto;padding:76px 0 34px}
+      .hero h1{font-size:40px}
+      .hero-actions{flex-direction:column}
+      .btn{width:100%}
+      .feature-card{padding:22px}
+      .qr-preview{grid-template-columns:1fr;justify-items:center;text-align:center}
+      .service-section{padding:70px 0}
+      .service-list,.form-grid,.reviews-grid{grid-template-columns:1fr}
+      .contact-box{padding:21px}
+      .form-actions{flex-direction:column;align-items:stretch}
     }
   </style>
 </head>
-
 <body>
-
   <header>
-
     <div class="wrap nav">
-
       <a class="brand" href="#top">
-
         <span class="mark">M</span>
-
-        <span class="brand-copy">
-          <strong>MemoryQR</strong>
-          <span>by MonicaLoov.ai</span>
-        </span>
-
+        <span class="brand-copy"><strong>MemoryQR</strong><span>by MonicaLoov.ai</span></span>
       </a>
-
       <nav class="links">
-
         <a href="#tjansten">Tjänsten</a>
-
         <a href="#recensioner">Recensioner</a>
-
-        <a class="btn btn-dark nav-cta" href="#kontakt">
-          Beställ
-        </a>
-
+        <a class="btn btn-dark nav-cta" href="#kontakt">Beställ</a>
       </nav>
-
     </div>
-
   </header>
 
   <main id="top">
-
-    <section class="screen hero">
-
+    <section class="hero">
       <div class="wrap hero-grid">
-
         <div>
-
-          <p class="eyebrow">
-            Exklusiv eventtjänst med QR-kod
-          </p>
-
-          <h1>
-            Vi skapar din <em>QR-kod</em>, din eventsida
-            och samlar alla bilder på samma plats.
-          </h1>
-
-          <p class="lead">
-            MemoryQR by MonicaLoov.ai är en färdig premiumtjänst
-            för bröllop, födelsedag, baby shower, förlovning
-            och företagsevent. Gästerna skannar QR-koden,
-            laddar upp sina bilder direkt från mobilen
-            och alla minnen samlas i ett privat galleri.
-          </p>
-
+          <p class="eyebrow">Exklusiv eventtjänst med QR-kod</p>
+          <h1>Vi skapar din <em>QR-kod</em>, din eventsida och samlar alla bilder på samma plats.</h1>
+          <p class="lead">MemoryQR by MonicaLoov.ai är en färdig premiumtjänst för bröllop, födelsedag, baby shower, förlovning och företagsevent. Gästerna skannar QR-koden, laddar upp sina bilder direkt från mobilen och alla minnen samlas i ett privat galleri.</p>
           <div class="hero-actions">
-
-            <a class="btn btn-dark" href="#kontakt">
-              Beställ tjänsten
-            </a>
-
-            <a class="btn btn-light" href="#tjansten">
-              Se vad som ingår
-            </a>
-
+            <a class="btn btn-dark" href="#kontakt">Beställ tjänsten</a>
+            <a class="btn btn-light" href="#tjansten">Se vad som ingår</a>
           </div>
-
           <div class="hero-points">
-
             <span>Personlig QR-kod</span>
-
             <span>Gäster laddar upp bilder</span>
-
-            <span>Alla minnen samlas på samma plats</span>
-
+            <span>Privat galleri</span>
           </div>
-
-          <div class="event-types" aria-label="Eventtyper">
-
-            <span>Bröllop</span>
-
-            <span>Födelsedag</span>
-
-            <span>Baby shower</span>
-
-            <span>Förlovning</span>
-
-            <span>Företagsevent</span>
-
+          <div class="event-types">
+            <span>Bröllop</span><span>Födelsedag</span><span>Baby shower</span><span>Förlovning</span><span>Företagsevent</span>
           </div>
-
         </div>
 
-        <div class="hero-card">
-
-          <div class="feature-card">
-
-            <p class="eyebrow">
-              Så fungerar det
-            </p>
-
-            <h2>
-              En elegant lösning för hela eventet
-            </h2>
-
-            <p>
-              Du köper en tjänst – vi gör resten.
-              Du får en personlig QR-kod och en exklusiv eventsida
-              som gör det enkelt för gästerna att dela bilder
-              och filmer under hela dagen.
-            </p>
-
-            <div class="qr-preview">
-
-              <div class="qr-box" aria-label="Exempel på QR-kod">
-
-                <svg viewBox="0 0 120 120" role="img" aria-hidden="true">
-
-                  <rect width="120" height="120" fill="#ffffff"/>
-
-                  <g fill="#171411">
-
-                    <path d="M8 8h38v38H8zM14 14v26h26V14zM20 20h14v14H20z"/>
-
-                    <path d="M74 8h38v38H74zM80 14v26h26V14zM86 20h14v14H86z"/>
-
-                    <path d="M8 74h38v38H8zM14 80v26h26V80zM20 86h14v14H20z"/>
-
-                    <path d="M54 8h10v10H54zM54 24h10v12H54zM54 42h10v10H54z"/>
-
-                    <path d="M8 54h10v10H8zM24 54h22v10H24zM54 54h10v10H54z"/>
-
-                    <path d="M74 54h14v10H74zM94 54h18v10H94zM54 74h10v18H54z"/>
-
-                    <path d="M74 74h10v10H74zM92 74h20v10H92zM74 92h20v20H74z"/>
-
-                    <path d="M100 92h12v20h-12zM54 100h10v12H54z"/>
-
-                  </g>
-
-                </svg>
-
-              </div>
-
-              <div class="qr-copy">
-
-                <strong>
-                  Skanna. Ladda upp. Spara.
-                </strong>
-
-                <p>
-                  QR-koden kan placeras på bord,
-                  välkomstskylt eller inbjudningar
-                  så att gästerna enkelt kan dela sina bilder.
-                </p>
-
-              </div>
-
+        <div class="feature-card">
+          <p class="eyebrow">Så fungerar det</p>
+          <h2>En elegant lösning för hela eventet</h2>
+          <p>Du köper tjänsten – vi gör resten. Du får en personlig QR-kod och en exklusiv eventsida där gästerna kan dela bilder och filmer.</p>
+          <div class="qr-preview">
+            <div class="qr-box">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <rect width="120" height="120" fill="#fff"/>
+                <g fill="#111">
+                  <path d="M8 8h38v38H8zM14 14v26h26V14zM20 20h14v14H20z"/>
+                  <path d="M74 8h38v38H74zM80 14v26h26V14zM86 20h14v14H86z"/>
+                  <path d="M8 74h38v38H8zM14 80v26h26V80zM20 86h14v14H20z"/>
+                  <path d="M54 8h10v10H54zM54 24h10v12H54zM54 42h10v10H54z"/>
+                  <path d="M8 54h10v10H8zM24 54h22v10H24zM54 54h10v10H54z"/>
+                  <path d="M74 54h14v10H74zM94 54h18v10H94zM54 74h10v18H54z"/>
+                  <path d="M74 74h10v10H74zM92 74h20v10H92zM74 92h20v20H74z"/>
+                  <path d="M100 92h12v20h-12zM54 100h10v12H54z"/>
+                </g>
+              </svg>
             </div>
-
-            <div class="mini-list">
-
-              <div class="mini-item">
-
-                <span>01</span>
-
-                <div>
-
-                  <strong>
-                    Personlig QR-kod
-                  </strong>
-
-                  <p>
-                    Vi skapar en unik QR-kod
-                    för just ditt event.
-                  </p>
-
-                </div>
-
-              </div>
-
-              <div class="mini-item">
-
-                <span>02</span>
-
-                <div>
-
-                  <strong>
-                    Gäster laddar upp bilder
-                  </strong>
-
-                  <p>
-                    Bilder och filmer laddas upp direkt
-                    från mobilen under eventet.
-                  </p>
-
-                </div>
-
-              </div>
-
-              <div class="mini-item">
-
-                <span>03</span>
-
-                <div>
-
-                  <strong>
-                    Alla bilder på samma plats
-                  </strong>
-
-                  <p>
-                    Allt samlas i ett privat galleri
-                    som du kan spara och återuppleva.
-                  </p>
-
-                </div>
-
-              </div>
-
+            <div class="qr-copy">
+              <strong>Skanna. Ladda upp. Spara.</strong>
+              <p>QR-koden placeras på bord, välkomstskylt eller inbjudningar.</p>
             </div>
-
           </div>
-
+          <div class="mini-list">
+            <div class="mini-item"><span>01</span><div><strong>Personlig QR-kod</strong><p>Skapad för just ditt event.</p></div></div>
+            <div class="mini-item"><span>02</span><div><strong>Gäster laddar upp</strong><p>Bilder och filmer direkt från mobilen.</p></div></div>
+            <div class="mini-item"><span>03</span><div><strong>Allt på samma plats</strong><p>Alla minnen samlas i ett privat galleri.</p></div></div>
+          </div>
         </div>
-
       </div>
-
     </section>
 
-    <section class="second" id="tjansten">
-
-      <div class="wrap second-grid">
-
-        <div class="service-panel">
-
-          <p class="eyebrow">
-            Det kunden köper
-          </p>
-
-          <h2>
-            En exklusiv QR-tjänst som samlar eventets alla minnen på samma plats
-          </h2>
-
-          <p>
-            MemoryQR är gjort för att kännas exklusivt,
-            personligt och enkelt. Det ska vara vackert
-            att visa upp på eventet och lätt för gästerna
-            att använda när de vill dela sina minnen.
-          </p>
-
+    <section class="service-section" id="tjansten">
+      <div class="wrap service-grid">
+        <div class="service-copy">
+          <p class="eyebrow">Det kunden köper</p>
+          <h2>En komplett QR-tjänst för eventets viktigaste minnen</h2>
+          <p>En stilren och genomtänkt lösning som gör det enkelt för gästerna att dela sina bilder – och enkelt för dig att få allt samlat på ett och samma ställe.</p>
           <div class="service-list">
-
-            <article>
-
-              <strong>
-                Exklusiv eventsida
-              </strong>
-
-              <p>
-                Designad med en elegant känsla
-                som passar fest, bröllop och företagsevent.
-              </p>
-
-            </article>
-
-            <article>
-
-              <strong>
-                Mobilvänlig uppladdning
-              </strong>
-
-              <p>
-                Gästerna laddar upp bilder och filmer
-                direkt från mobilen.
-              </p>
-
-            </article>
-
-            <article>
-
-              <strong>
-                Privat galleri
-              </strong>
-
-              <p>
-                Alla minnen samlas på samma plats
-                i ett privat galleri.
-              </p>
-
-            </article>
-
-            <article>
-
-              <strong>
-                Personlig support
-              </strong>
-
-              <p>
-                Vi hjälper dig före eventet
-                så att allt är färdigt att använda.
-              </p>
-
-            </article>
-
+            <article><strong>Exklusiv eventsida</strong><p>Anpassad efter namn, datum och eventets känsla.</p></article>
+            <article><strong>Mobilvänlig uppladdning</strong><p>Gästerna laddar upp direkt från mobilen.</p></article>
+            <article><strong>Privat galleri</strong><p>Alla bilder och filmer samlas på samma plats.</p></article>
+            <article><strong>Personlig support</strong><p>Vi hjälper dig före eventet så att allt är klart.</p></article>
           </div>
-
-          <div class="highlight-box">
-
-            <strong>
-              Det här är mer än bara en QR-kod
-            </strong>
-
-            <p>
-              QR-koden leder gästerna till en personlig eventsida
-              där de kan ladda upp sina egna bilder och filmer.
-              Därefter samlas allt på samma plats för dig.
-            </p>
-
-          </div>
-
         </div>
 
-        <div class="right-stack">
-
-          <section class="contact-box" id="kontakt">
-
-            <p class="eyebrow">
-              Beställ MemoryQR
-            </p>
-
-            <h3>
-              Berätta om ditt event
-            </h3>
-
-            <p>
-              Skicka en förfrågan så återkommer MonicaLoov.ai
-              med ett personligt upplägg för QR-kod,
-              eventsida, bilduppladdning och privat galleri.
-            </p>
-
-            <div class="contact-info">
-
-              <strong>
-                Vad du får
-              </strong>
-
-              Personlig QR-kod, elegant eventsida,
-              möjlighet för gästerna att ladda upp bilder och filmer,
-              samt ett privat galleri där allt samlas på samma plats.
-
+        <section class="contact-box" id="kontakt">
+          <p class="eyebrow">Beställ MemoryQR</p>
+          <h3>Berätta om ditt event</h3>
+          <p>Skicka en förfrågan så återkommer MonicaLoov.ai med ett personligt upplägg.</p>
+          <div class="contact-info">
+            <strong>Detta ingår</strong>
+            QR-kod, eventsida, bilduppladdning och privat galleri.
+          </div>
+          <form id="contactForm">
+            <div class="form-grid">
+              <div class="field"><label for="name">Namn *</label><input id="name" name="name" required></div>
+              <div class="field"><label for="email">E-post *</label><input id="email" name="email" type="email" required></div>
+              <div class="field"><label for="eventType">Typ av event *</label><select id="eventType" name="eventType" required><option value="">Välj</option><option>Bröllop</option><option>Födelsedag</option><option>Baby shower</option><option>Förlovning</option><option>Företagsevent</option><option>Annat</option></select></div>
+              <div class="field"><label for="eventDate">Datum</label><input id="eventDate" name="eventDate" type="date"></div>
+              <div class="field full"><label for="message">Berätta kort om eventet</label><textarea id="message" name="message" placeholder="Plats, antal gäster, tema och önskemål..."></textarea></div>
+              <div class="form-actions"><button class="btn btn-dark" type="submit">Skicka förfrågan</button><span class="status" id="status">Tack! Din förfrågan är registrerad.</span></div>
             </div>
-
-            <form id="contactForm">
-
-              <div class="form-grid">
-
-                <div class="field">
-
-                  <label for="name">
-                    Namn *
-                  </label>
-
-                  <input
-                    id="name"
-                    name="name"
-                    required
-                  >
-
-                </div>
-
-                <div class="field">
-
-                  <label for="email">
-                    E-post *
-                  </label>
-
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                  >
-
-                </div>
-
-                <div class="field">
-
-                  <label for="eventType">
-                    Typ av event *
-                  </label>
-
-                  <select
-                    id="eventType"
-                    name="eventType"
-                    required
-                  >
-
-                    <option value="">
-                      Välj
-                    </option>
-
-                    <option>
-                      Bröllop
-                    </option>
-
-                    <option>
-                      Födelsedag
-                    </option>
-
-                    <option>
-                      Baby shower
-                    </option>
-
-                    <option>
-                      Förlovning
-                    </option>
-
-                    <option>
-                      Företagsevent
-                    </option>
-
-                    <option>
-                      Konferens
-                    </option>
-
-                    <option>
-                      Annat
-                    </option>
-
-                  </select>
-
-                </div>
-
-                <div class="field">
-
-                  <label for="eventDate">
-                    Datum
-                  </label>
-
-                  <input
-                    id="eventDate"
-                    name="eventDate"
-                    type="date"
-                  >
-
-                </div>
-
-                <div class="field full">
-
-                  <label for="message">
-                    Berätta kort om eventet
-                  </label>
-
-                  <textarea
-                    id="message"
-                    name="message"
-                    placeholder="Plats, antal gäster, tema och önskemål..."
-                  ></textarea>
-
-                </div>
-
-                <div class="form-actions">
-
-                  <button
-                    class="btn btn-dark"
-                    type="submit"
-                  >
-                    Skicka förfrågan
-                  </button>
-
-                  <span
-                    class="status"
-                    id="status"
-                  >
-                    Tack! Din förfrågan är registrerad.
-                  </span>
-
-                </div>
-
-              </div>
-
-            </form>
-
-          </section>
-
-        </div>
-
+          </form>
+        </section>
       </div>
-
     </section>
 
     <section class="reviews-section" id="recensioner">
-
       <div class="wrap">
-
         <div class="reviews-heading">
-
-          <p class="eyebrow">
-            Kundernas upplevelser
-          </p>
-
-          <h2>
-            Vad kunder säger om MemoryQR
-          </h2>
-
-          <p>
-            Omdömen från kunder som har använt MemoryQR
-            på sina event.
-          </p>
-
+          <p class="eyebrow">Kundernas upplevelser</p>
+          <h2>Vad kunder säger om MemoryQR</h2>
+          <p>Omdömen från kunder som har använt tjänsten på sina event.</p>
         </div>
-
         <div class="reviews-grid">
-
-          <article class="review-card">
-
-            <div class="stars">
-              ★★★★★
-            </div>
-
-            <blockquote>
-              “Så fint, exklusivt och enkelt för gästerna.
-              Vi fick så många bilder som vi annars hade missat.”
-            </blockquote>
-
-            <footer>
-              — Emma & Johan, Bröllop
-            </footer>
-
-          </article>
-
-          <article class="review-card">
-
-            <div class="stars">
-              ★★★★★
-            </div>
-
-            <blockquote>
-              “QR-koden gjorde allt lätt.
-              Gästerna förstod direkt hur de skulle
-              ladda upp sina bilder.”
-            </blockquote>
-
-            <footer>
-              — Sofia Lind, Födelsedag
-            </footer>
-
-          </article>
-
-          <article class="review-card">
-
-            <div class="stars">
-              ★★★★★
-            </div>
-
-            <blockquote>
-              “Det kändes premium och genomtänkt.
-              Alla bilder samlades på samma plats
-              och det var guld värt.”
-            </blockquote>
-
-            <footer>
-              — Nordic Events AB, Företagsevent
-            </footer>
-
-          </article>
-
+          <article class="review-card"><div class="stars">★★★★★</div><blockquote>“Så fint och enkelt för gästerna. Vi fick många bilder som vi annars hade missat.”</blockquote><footer>— Emma & Johan, Bröllop</footer></article>
+          <article class="review-card"><div class="stars">★★★★★</div><blockquote>“QR-koden gjorde allt lätt. Alla förstod direkt hur de skulle ladda upp sina bilder.”</blockquote><footer>— Sofia Lind, Födelsedag</footer></article>
+          <article class="review-card"><div class="stars">★★★★★</div><blockquote>“Det kändes premium och genomtänkt. Alla bilder samlades på samma plats.”</blockquote><footer>— Nordic Events AB, Företagsevent</footer></article>
         </div>
-
       </div>
-
     </section>
-
   </main>
 
   <footer class="footer">
-
-    <div class="wrap footer-inner">
-
-      <span>
-        MemoryQR by MonicaLoov.ai
-      </span>
-
-      <span>
-        QR-kod · gäster laddar upp bilder · privat galleri
-      </span>
-
-      <span>
-        Instagram @monicaloov.ai
-      </span>
-
-    </div>
-
+    <div class="wrap footer-inner"><span>MemoryQR by MonicaLoov.ai</span><span>QR-kod · uppladdning · privat galleri</span><span>Instagram @monicaloov.ai</span></div>
   </footer>
 
   <script>
-    const form = document.getElementById("contactForm");
-    const status = document.getElementById("status");
+    const form=document.getElementById("contactForm");
+    const status=document.getElementById("status");
 
-    form.addEventListener("submit", function(event){
+    form.addEventListener("submit",function(event){
       event.preventDefault();
-      status.style.display = "inline";
+      status.style.display="inline";
       form.reset();
     });
   </script>
-
 </body>
 </html>
