@@ -2,13 +2,13 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <title>MemoryQR by MonicaLoov.ai</title>
 
   <meta
     name="description"
-    content="MemoryQR är en exklusiv QR-tjänst för bröllop, födelsedag, baby shower, förlovning och företagsevent. Gästerna laddar upp bilder och filmer, och alla minnen samlas på samma plats."
+    content="MemoryQR samlar alla bilder och filmer från bröllop, födelsedagar och event genom en personlig QR-kod."
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,10 +21,10 @@
 
   <style>
     :root{
-      --white:#ffffff;
+      --white:#fff;
       --off:#f4f4f2;
-      --ink:#111111;
-      --muted:#666666;
+      --ink:#111;
+      --muted:#666;
       --line:rgba(17,17,17,.13);
       --shadow:0 24px 70px rgba(0,0,0,.14);
     }
@@ -47,8 +47,8 @@
     }
 
     a{
-      text-decoration:none;
       color:inherit;
+      text-decoration:none;
     }
 
     button,
@@ -73,9 +73,9 @@
 
     .eyebrow{
       font-size:11px;
+      font-weight:600;
       letter-spacing:.22em;
       text-transform:uppercase;
-      font-weight:600;
     }
 
     .btn{
@@ -84,8 +84,8 @@
       justify-content:center;
       min-height:52px;
       padding:0 27px;
-      border-radius:999px;
       border:1px solid transparent;
+      border-radius:999px;
       font-weight:600;
       cursor:pointer;
       transition:.2s ease;
@@ -101,7 +101,7 @@
       transform:translateY(-2px);
     }
 
-    .btn-dark:disabled{
+    .btn:disabled{
       opacity:.65;
       cursor:not-allowed;
       transform:none;
@@ -113,7 +113,7 @@
       left:0;
       right:0;
       z-index:100;
-      background:rgba(255,255,255,.78);
+      background:rgba(255,255,255,.8);
       backdrop-filter:blur(18px);
       border-bottom:1px solid var(--line);
     }
@@ -135,17 +135,17 @@
     .mark{
       width:42px;
       height:42px;
-      border:1px solid var(--ink);
-      border-radius:50%;
       display:grid;
       place-items:center;
+      border:1px solid var(--ink);
+      border-radius:50%;
       font:500 21px "Playfair Display",serif;
     }
 
     .brand-copy strong{
       display:block;
       font:600 22px "Playfair Display",serif;
-      line-height:1.02;
+      line-height:1;
     }
 
     .brand-copy span{
@@ -160,7 +160,7 @@
     .links{
       display:flex;
       align-items:center;
-      gap:28px;
+      gap:27px;
       font-size:14px;
     }
 
@@ -177,43 +177,38 @@
       background:
         linear-gradient(
           90deg,
-          rgba(255,255,255,.88) 0%,
-          rgba(255,255,255,.72) 39%,
-          rgba(255,255,255,.22) 68%,
+          rgba(255,255,255,.9) 0%,
+          rgba(255,255,255,.73) 40%,
+          rgba(255,255,255,.22) 70%,
           rgba(255,255,255,.06) 100%
         ),
         url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=90")
         center/cover no-repeat;
     }
 
-    .hero::before{
+    .hero:before{
       content:"";
       position:absolute;
       inset:0;
-      background:
-        linear-gradient(
-          180deg,
-          transparent 50%,
-          rgba(0,0,0,.16)
-        );
+      background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.16));
       pointer-events:none;
     }
 
     .hero-grid{
+      position:relative;
+      z-index:2;
       display:grid;
       grid-template-columns:1.02fr .98fr;
       gap:58px;
       align-items:center;
-      position:relative;
-      z-index:2;
     }
 
     .hero h1{
+      max-width:760px;
+      margin-top:18px;
       font-size:clamp(48px,6.7vw,84px);
       line-height:.98;
       letter-spacing:-.04em;
-      max-width:760px;
-      margin-top:18px;
     }
 
     .hero h1 em{
@@ -238,35 +233,35 @@
 
     .event-types{
       display:flex;
-      gap:10px;
       flex-wrap:wrap;
+      gap:10px;
       margin-top:24px;
     }
 
     .event-types span{
       padding:8px 13px;
-      border-radius:999px;
-      background:rgba(255,255,255,.68);
       border:1px solid rgba(17,17,17,.12);
-      font-size:12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.7);
       backdrop-filter:blur(8px);
+      font-size:12px;
     }
 
     .feature-card{
       width:min(440px,100%);
       margin-left:auto;
       padding:30px;
-      border-radius:28px;
-      background:rgba(255,255,255,.80);
       border:1px solid rgba(17,17,17,.13);
+      border-radius:28px;
+      background:rgba(255,255,255,.82);
       box-shadow:var(--shadow);
       backdrop-filter:blur(14px);
     }
 
     .feature-card h2{
+      margin-top:10px;
       font-size:36px;
       line-height:1.08;
-      margin-top:10px;
     }
 
     .feature-card > p{
@@ -352,14 +347,168 @@
       line-height:1.5;
     }
 
+    .pricing-section{
+      padding:88px 0;
+      background:#fff;
+    }
+
+    .pricing-heading{
+      max-width:760px;
+      margin:0 auto 38px;
+      text-align:center;
+    }
+
+    .pricing-heading h2{
+      margin-top:12px;
+      font-size:clamp(38px,4.8vw,58px);
+      line-height:1.06;
+    }
+
+    .pricing-heading p{
+      margin-top:14px;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .pricing-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .price-card{
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      padding:28px;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:#f7f7f5;
+      box-shadow:0 15px 45px rgba(0,0,0,.06);
+    }
+
+    .price-card.featured{
+      color:#fff;
+      background:var(--ink);
+      transform:translateY(-8px);
+      box-shadow:var(--shadow);
+    }
+
+    .price-badge{
+      position:absolute;
+      top:18px;
+      right:18px;
+      padding:7px 11px;
+      border-radius:999px;
+      background:#fff;
+      color:var(--ink);
+      font-size:10px;
+      font-weight:600;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .price-card h3{
+      margin-top:8px;
+      font-size:31px;
+    }
+
+    .price{
+      display:flex;
+      align-items:flex-end;
+      gap:7px;
+      margin-top:20px;
+    }
+
+    .price strong{
+      font:500 48px "Playfair Display",serif;
+      line-height:1;
+    }
+
+    .price span{
+      padding-bottom:6px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .price-intro{
+      min-height:72px;
+      margin-top:14px;
+      color:var(--muted);
+      line-height:1.62;
+    }
+
+    .featured .price span,
+    .featured .price-intro,
+    .featured .price-list{
+      color:rgba(255,255,255,.72);
+    }
+
+    .price-list{
+      list-style:none;
+      display:grid;
+      gap:11px;
+      margin:23px 0 26px;
+      color:#444;
+      font-size:14px;
+      line-height:1.45;
+    }
+
+    .price-list li{
+      position:relative;
+      padding-left:24px;
+    }
+
+    .price-list li:before{
+      content:"✓";
+      position:absolute;
+      left:0;
+      top:0;
+      font-weight:700;
+    }
+
+    .price-card .btn{
+      width:100%;
+      margin-top:auto;
+    }
+
+    .featured .btn{
+      background:#fff;
+      color:var(--ink);
+    }
+
+    .featured .btn:hover{
+      background:#ececea;
+    }
+
+    .payment-note{
+      max-width:760px;
+      margin:24px auto 0;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+      text-align:center;
+    }
+
+    .stripe-warning{
+      display:none;
+      max-width:760px;
+      margin:18px auto 0;
+      padding:13px 15px;
+      border:1px solid #d9b36b;
+      border-radius:14px;
+      background:#fff8e8;
+      color:#694b11;
+      font-size:13px;
+      line-height:1.55;
+      text-align:center;
+    }
+
     .service-section{
       padding:88px 0;
       background:
-        linear-gradient(
-          90deg,
-          rgba(12,12,12,.90),
-          rgba(12,12,12,.76)
-        ),
+        linear-gradient(90deg,rgba(12,12,12,.9),rgba(12,12,12,.76)),
         url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1800&q=90")
         center/cover no-repeat;
     }
@@ -380,17 +529,17 @@
     }
 
     .service-copy h2{
+      max-width:620px;
+      margin-top:14px;
       font-size:clamp(38px,4.7vw,58px);
       line-height:1.07;
-      margin-top:14px;
-      max-width:620px;
     }
 
     .service-copy > p{
-      margin-top:18px;
-      color:rgba(255,255,255,.70);
-      line-height:1.72;
       max-width:600px;
+      margin-top:18px;
+      color:rgba(255,255,255,.7);
+      line-height:1.72;
     }
 
     .service-list{
@@ -409,8 +558,8 @@
 
     .service-list strong{
       display:block;
-      font:500 19px "Playfair Display",serif;
       margin-bottom:5px;
+      font:500 19px "Playfair Display",serif;
     }
 
     .service-list p{
@@ -420,22 +569,22 @@
     }
 
     .contact-box{
-      background:rgba(255,255,255,.94);
-      border-radius:26px;
       padding:26px;
+      border-radius:26px;
+      background:rgba(255,255,255,.95);
       box-shadow:var(--shadow);
     }
 
     .contact-box h3{
-      font-size:30px;
       margin-top:8px;
+      font-size:30px;
     }
 
     .contact-box > p{
       margin-top:8px;
       color:var(--muted);
-      line-height:1.6;
       font-size:14px;
+      line-height:1.6;
     }
 
     .contact-info{
@@ -450,9 +599,9 @@
 
     .contact-info strong{
       display:block;
+      margin-bottom:5px;
       color:var(--ink);
       font:500 18px "Playfair Display",serif;
-      margin-bottom:5px;
     }
 
     .form-grid{
@@ -473,22 +622,23 @@
     }
 
     .field label{
-      font-size:11px;
       color:var(--muted);
+      font-size:11px;
     }
 
     .field input,
     .field select,
     .field textarea{
+      width:100%;
+      padding:11px;
       border:1px solid var(--line);
-      background:#fff;
       border-radius:11px;
-      padding:10px 11px;
       outline:none;
+      background:#fff;
     }
 
     .field textarea{
-      min-height:72px;
+      min-height:78px;
       resize:vertical;
     }
 
@@ -519,15 +669,15 @@
     }
 
     .reviews-heading{
-      text-align:center;
       max-width:740px;
       margin:0 auto 32px;
+      text-align:center;
     }
 
     .reviews-heading h2{
+      margin-top:10px;
       font-size:clamp(36px,4.7vw,56px);
       line-height:1.08;
-      margin-top:10px;
     }
 
     .reviews-heading p{
@@ -543,10 +693,10 @@
     }
 
     .review-card{
-      background:#fff;
+      padding:26px;
       border:1px solid var(--line);
       border-radius:22px;
-      padding:26px;
+      background:#fff;
       box-shadow:0 15px 45px rgba(0,0,0,.07);
     }
 
@@ -557,8 +707,8 @@
     .review-card blockquote{
       margin-top:16px;
       font-size:20px;
-      line-height:1.46;
       font-style:italic;
+      line-height:1.46;
     }
 
     .review-card footer{
@@ -600,15 +750,17 @@
         background:
           linear-gradient(
             180deg,
-            rgba(255,255,255,.84) 0%,
-            rgba(255,255,255,.66) 42%,
-            rgba(255,255,255,.18) 100%
+            rgba(255,255,255,.86),
+            rgba(255,255,255,.66) 45%,
+            rgba(255,255,255,.18)
           ),
           url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=90")
           center/cover no-repeat;
       }
 
-      .lead{
+      .lead,
+      .service-copy h2,
+      .service-copy > p{
         margin-left:auto;
         margin-right:auto;
       }
@@ -625,11 +777,16 @@
       .service-copy{
         text-align:center;
       }
+    }
 
-      .service-copy h2,
-      .service-copy > p{
-        margin-left:auto;
-        margin-right:auto;
+    @media(max-width:720px){
+      .pricing-grid,
+      .reviews-grid{
+        grid-template-columns:1fr;
+      }
+
+      .price-card.featured{
+        transform:none;
       }
     }
 
@@ -661,13 +818,13 @@
         text-align:center;
       }
 
+      .pricing-section,
       .service-section{
         padding:70px 0;
       }
 
       .service-list,
-      .form-grid,
-      .reviews-grid{
+      .form-grid{
         grid-template-columns:1fr;
       }
 
@@ -686,48 +843,36 @@
 <body>
 
   <header>
-
     <div class="wrap nav">
 
       <a class="brand" href="#top">
-
         <span class="mark">M</span>
 
         <span class="brand-copy">
           <strong>MemoryQR</strong>
           <span>by MonicaLoov.ai</span>
         </span>
-
       </a>
 
       <nav class="links">
+        <a href="#tjansten">Tjänsten</a>
+        <a href="#paket">Paket</a>
+        <a href="#recensioner">Recensioner</a>
 
-        <a href="#tjansten">
-          Tjänsten
+        <a class="btn btn-dark nav-cta" href="#paket">
+          Köp nu
         </a>
-
-        <a href="#recensioner">
-          Recensioner
-        </a>
-
-        <a class="btn btn-dark nav-cta" href="#kontakt">
-          Beställ
-        </a>
-
       </nav>
 
     </div>
-
   </header>
 
   <main id="top">
 
     <section class="hero">
-
       <div class="wrap hero-grid">
 
         <div>
-
           <p class="eyebrow">
             Exklusiv eventtjänst med QR-kod
           </p>
@@ -746,23 +891,18 @@
           </p>
 
           <div class="hero-actions">
-
-            <a class="btn btn-dark" href="#kontakt">
-              Beställ tjänsten
+            <a class="btn btn-dark" href="#paket">
+              Se paket och köp
             </a>
-
           </div>
 
           <div class="event-types">
-
             <span>Bröllop</span>
             <span>Födelsedag</span>
             <span>Baby shower</span>
             <span>Förlovning</span>
             <span>Företagsevent</span>
-
           </div>
-
         </div>
 
         <div class="feature-card">
@@ -784,50 +924,31 @@
           <div class="qr-preview">
 
             <div class="qr-box">
-
               <svg viewBox="0 0 120 120" aria-hidden="true">
 
-                <rect
-                  width="120"
-                  height="120"
-                  fill="#fff"
-                />
+                <rect width="120" height="120" fill="#fff"/>
 
                 <g fill="#111">
-
                   <path d="M8 8h38v38H8zM14 14v26h26V14zM20 20h14v14H20z"/>
-
                   <path d="M74 8h38v38H74zM80 14v26h26V14zM86 20h14v14H86z"/>
-
                   <path d="M8 74h38v38H8zM14 80v26h26V80zM20 86h14v14H20z"/>
-
                   <path d="M54 8h10v10H54zM54 24h10v12H54zM54 42h10v10H54z"/>
-
                   <path d="M8 54h10v10H8zM24 54h22v10H24zM54 54h10v10H54z"/>
-
                   <path d="M74 54h14v10H74zM94 54h18v10H94zM54 74h10v18H54z"/>
-
                   <path d="M74 74h10v10H74zM92 74h20v10H92zM74 92h20v20H74z"/>
-
                   <path d="M100 92h12v20h-12zM54 100h10v12H54z"/>
-
                 </g>
 
               </svg>
-
             </div>
 
             <div class="qr-copy">
-
-              <strong>
-                Skanna. Ladda upp. Spara.
-              </strong>
+              <strong>Skanna. Ladda upp. Spara.</strong>
 
               <p>
                 QR-koden placeras på bord,
                 välkomstskylt eller inbjudningar.
               </p>
-
             </div>
 
           </div>
@@ -835,75 +956,194 @@
           <div class="mini-list">
 
             <div class="mini-item">
-
-              <span>
-                01
-              </span>
+              <span>01</span>
 
               <div>
-
-                <strong>
-                  Personlig QR-kod
-                </strong>
-
-                <p>
-                  Skapad för just ditt event.
-                </p>
-
+                <strong>Personlig QR-kod</strong>
+                <p>Skapad för just ditt event.</p>
               </div>
-
             </div>
 
             <div class="mini-item">
-
-              <span>
-                02
-              </span>
+              <span>02</span>
 
               <div>
-
-                <strong>
-                  Gäster laddar upp
-                </strong>
-
-                <p>
-                  Bilder och filmer direkt från mobilen.
-                </p>
-
+                <strong>Gäster laddar upp</strong>
+                <p>Bilder och filmer direkt från mobilen.</p>
               </div>
-
             </div>
 
             <div class="mini-item">
-
-              <span>
-                03
-              </span>
+              <span>03</span>
 
               <div>
-
-                <strong>
-                  Allt på samma plats
-                </strong>
-
-                <p>
-                  Alla minnen samlas i ett privat galleri.
-                </p>
-
+                <strong>Allt på samma plats</strong>
+                <p>Alla minnen samlas i ett privat galleri.</p>
               </div>
-
             </div>
 
           </div>
-
         </div>
 
       </div>
+    </section>
 
+    <section class="pricing-section" id="paket">
+      <div class="wrap">
+
+        <div class="pricing-heading">
+          <p class="eyebrow">
+            Välj ditt paket
+          </p>
+
+          <h2>
+            Köp MemoryQR direkt online
+          </h2>
+
+          <p>
+            Välj paketet som passar ditt event. Betalningen genomförs
+            säkert via Stripe. Efter köpet fyller du i dina eventuppgifter
+            genom formuläret längre ner på sidan.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+
+          <article class="price-card">
+
+            <p class="eyebrow">
+              För mindre event
+            </p>
+
+            <h3>Basic</h3>
+
+            <div class="price">
+              <strong>699 kr</strong>
+              <span>engångsbetalning</span>
+            </div>
+
+            <p class="price-intro">
+              En personlig och enkel lösning för mindre bröllop,
+              födelsedagar och privata event.
+            </p>
+
+            <ul class="price-list">
+              <li>Personlig eventsida</li>
+              <li>Personlig QR-kod</li>
+              <li>Uppladdning av bilder och filmer</li>
+              <li>Privat galleri</li>
+              <li>3 månaders lagring</li>
+              <li>Digital QR-skylt</li>
+            </ul>
+
+            <a
+              class="btn btn-dark stripe-buy"
+              href="#"
+              data-package="MemoryQR Basic – 699 kr"
+              data-stripe-url="DIN_STRIPE_LANK_BASIC"
+            >
+              Köp Basic
+            </a>
+
+          </article>
+
+          <article class="price-card featured">
+
+            <span class="price-badge">
+              Mest populär
+            </span>
+
+            <p class="eyebrow">
+              För bröllop och större event
+            </p>
+
+            <h3>Premium</h3>
+
+            <div class="price">
+              <strong>999 kr</strong>
+              <span>engångsbetalning</span>
+            </div>
+
+            <p class="price-intro">
+              Ett komplett paket med längre lagring och personlig
+              design anpassad efter eventets stil.
+            </p>
+
+            <ul class="price-list">
+              <li>Allt som ingår i Basic</li>
+              <li>12 månaders lagring</li>
+              <li>Personligt anpassad QR-skylt</li>
+              <li>Flera utskriftsklara designer</li>
+              <li>Prioriterad personlig support</li>
+              <li>ZIP-nedladdning av albumet</li>
+            </ul>
+
+            <a
+              class="btn stripe-buy"
+              href="#"
+              data-package="MemoryQR Premium – 999 kr"
+              data-stripe-url="DIN_STRIPE_LANK_PREMIUM"
+            >
+              Köp Premium
+            </a>
+
+          </article>
+
+          <article class="price-card">
+
+            <p class="eyebrow">
+              Personlig premiumservice
+            </p>
+
+            <h3>Exclusive</h3>
+
+            <div class="price">
+              <strong>1 499 kr</strong>
+              <span>engångsbetalning</span>
+            </div>
+
+            <p class="price-intro">
+              För dig som vill ha en helt personlig lösning
+              med exklusiv design och extra hjälp.
+            </p>
+
+            <ul class="price-list">
+              <li>Allt som ingår i Premium</li>
+              <li>Helt unik design efter tema</li>
+              <li>Personlig välkomstsida</li>
+              <li>QR-kort för utskrift</li>
+              <li>Testning före eventet</li>
+              <li>Personlig uppstart med MonicaLoov.ai</li>
+            </ul>
+
+            <a
+              class="btn btn-dark stripe-buy"
+              href="#"
+              data-package="MemoryQR Exclusive – 1 499 kr"
+              data-stripe-url="DIN_STRIPE_LANK_EXCLUSIVE"
+            >
+              Köp Exclusive
+            </a>
+
+          </article>
+
+        </div>
+
+        <p class="payment-note">
+          Kortbetalningen sker på Stripes säkra betalningssida.
+          Stripe skickar betalningsbekräftelse och kvitto.
+        </p>
+
+        <div class="stripe-warning" id="stripeWarning" role="alert">
+          Betalningslänken är inte inlagd ännu. Ersätt
+          DIN_STRIPE_LANK_BASIC, DIN_STRIPE_LANK_PREMIUM och
+          DIN_STRIPE_LANK_EXCLUSIVE med dina riktiga Stripe-länkar.
+        </div>
+
+      </div>
     </section>
 
     <section class="service-section" id="tjansten">
-
       <div class="wrap service-grid">
 
         <div class="service-copy">
@@ -918,68 +1158,51 @@
 
           <p>
             En stilren och genomtänkt lösning som gör det enkelt
-            för gästerna att dela sina bilder – och enkelt för dig
-            att få allt samlat på ett och samma ställe.
+            för gästerna att dela sina bilder och enkelt för dig
+            att få alla minnen samlade på samma plats.
           </p>
 
           <div class="service-list">
 
             <article>
-
-              <strong>
-                Exklusiv eventsida
-              </strong>
+              <strong>Exklusiv eventsida</strong>
 
               <p>
                 Anpassad efter namn, datum och eventets känsla.
               </p>
-
             </article>
 
             <article>
-
-              <strong>
-                Mobilvänlig uppladdning
-              </strong>
+              <strong>Mobilvänlig uppladdning</strong>
 
               <p>
                 Gästerna laddar upp direkt från mobilen.
               </p>
-
             </article>
 
             <article>
-
-              <strong>
-                Privat galleri
-              </strong>
+              <strong>Privat galleri</strong>
 
               <p>
                 Alla bilder och filmer samlas på samma plats.
               </p>
-
             </article>
 
             <article>
-
-              <strong>
-                Personlig support
-              </strong>
+              <strong>Personlig support</strong>
 
               <p>
                 Vi hjälper dig före eventet så att allt är klart.
               </p>
-
             </article>
 
           </div>
-
         </div>
 
         <section class="contact-box" id="kontakt">
 
           <p class="eyebrow">
-            Beställ MemoryQR
+            Eventuppgifter och kontakt
           </p>
 
           <h3>
@@ -987,18 +1210,13 @@
           </h3>
 
           <p>
-            Skicka en förfrågan så återkommer MonicaLoov.ai
-            med ett personligt upplägg.
+            Har du redan köpt ett paket? Fyll i uppgifterna här.
+            Formuläret kan även användas om du har frågor före köp.
           </p>
 
           <div class="contact-info">
-
-            <strong>
-              Detta ingår
-            </strong>
-
+            <strong>Detta ingår</strong>
             QR-kod, eventsida, bilduppladdning och privat galleri.
-
           </div>
 
           <form
@@ -1010,7 +1228,7 @@
             <input
               type="hidden"
               name="_subject"
-              value="Ny MemoryQR-förfrågan"
+              value="Ny MemoryQR-beställning"
             >
 
             <input
@@ -1028,106 +1246,138 @@
             <div class="form-grid">
 
               <div class="field">
-
                 <label for="name">
                   Namn *
                 </label>
 
                 <input
                   id="name"
-                  name="name"
+                  name="Namn"
                   autocomplete="name"
                   required
                 >
-
               </div>
 
               <div class="field">
-
                 <label for="email">
                   E-post *
                 </label>
 
                 <input
                   id="email"
-                  name="email"
+                  name="E-post"
                   type="email"
                   autocomplete="email"
                   required
                 >
-
               </div>
 
               <div class="field">
+                <label for="phone">
+                  Telefonnummer
+                </label>
 
+                <input
+                  id="phone"
+                  name="Telefonnummer"
+                  type="tel"
+                  autocomplete="tel"
+                >
+              </div>
+
+              <div class="field">
+                <label for="package">
+                  Paket
+                </label>
+
+                <select
+                  id="package"
+                  name="Paket"
+                >
+                  <option value="">
+                    Välj paket
+                  </option>
+
+                  <option value="MemoryQR Basic – 699 kr">
+                    Basic – 699 kr
+                  </option>
+
+                  <option value="MemoryQR Premium – 999 kr">
+                    Premium – 999 kr
+                  </option>
+
+                  <option value="MemoryQR Exclusive – 1 499 kr">
+                    Exclusive – 1 499 kr
+                  </option>
+
+                  <option value="Fråga före köp">
+                    Jag har en fråga före köp
+                  </option>
+                </select>
+              </div>
+
+              <div class="field">
                 <label for="eventType">
                   Typ av event *
                 </label>
 
                 <select
                   id="eventType"
-                  name="eventType"
+                  name="Typ av event"
                   required
                 >
-
                   <option value="">
                     Välj
                   </option>
 
-                  <option>
+                  <option value="Bröllop">
                     Bröllop
                   </option>
 
-                  <option>
+                  <option value="Födelsedag">
                     Födelsedag
                   </option>
 
-                  <option>
+                  <option value="Baby shower">
                     Baby shower
                   </option>
 
-                  <option>
+                  <option value="Förlovning">
                     Förlovning
                   </option>
 
-                  <option>
+                  <option value="Företagsevent">
                     Företagsevent
                   </option>
 
-                  <option>
+                  <option value="Annat">
                     Annat
                   </option>
-
                 </select>
-
               </div>
 
               <div class="field">
-
                 <label for="eventDate">
                   Datum
                 </label>
 
                 <input
                   id="eventDate"
-                  name="eventDate"
+                  name="Datum för eventet"
                   type="date"
                 >
-
               </div>
 
               <div class="field full">
-
                 <label for="message">
                   Berätta kort om eventet
                 </label>
 
                 <textarea
                   id="message"
-                  name="message"
-                  placeholder="Plats, antal gäster, tema och önskemål..."
+                  name="Meddelande"
+                  placeholder="Plats, antal gäster, tema, namn på eventet och önskemål..."
                 ></textarea>
-
               </div>
 
               <div class="form-actions">
@@ -1136,7 +1386,7 @@
                   class="btn btn-dark"
                   type="submit"
                 >
-                  Skicka förfrågan
+                  Skicka eventuppgifter
                 </button>
 
                 <span
@@ -1149,17 +1399,14 @@
               </div>
 
             </div>
-
           </form>
 
         </section>
 
       </div>
-
     </section>
 
     <section class="reviews-section" id="recensioner">
-
       <div class="wrap">
 
         <div class="reviews-heading">
@@ -1182,7 +1429,6 @@
         <div class="reviews-grid">
 
           <article class="review-card">
-
             <div class="stars">
               ★★★★★
             </div>
@@ -1195,11 +1441,9 @@
             <footer>
               — Emma & Johan, Bröllop
             </footer>
-
           </article>
 
           <article class="review-card">
-
             <div class="stars">
               ★★★★★
             </div>
@@ -1212,11 +1456,9 @@
             <footer>
               — Sofia Lind, Födelsedag
             </footer>
-
           </article>
 
           <article class="review-card">
-
             <div class="stars">
               ★★★★★
             </div>
@@ -1229,19 +1471,15 @@
             <footer>
               — Nordic Events AB, Företagsevent
             </footer>
-
           </article>
 
         </div>
-
       </div>
-
     </section>
 
   </main>
 
   <footer class="footer">
-
     <div class="wrap footer-inner">
 
       <span>
@@ -1257,15 +1495,64 @@
       </span>
 
     </div>
-
   </footer>
 
   <script>
-    const form = document.getElementById("contactForm");
-    const status = document.getElementById("status");
-    const submitButton = form.querySelector('button[type="submit"]');
+    const stripeButtons =
+      document.querySelectorAll(".stripe-buy");
 
-    form.addEventListener("submit", async function(event){
+    const stripeWarning =
+      document.getElementById("stripeWarning");
+
+    const packageSelect =
+      document.getElementById("package");
+
+    stripeButtons.forEach(function(button){
+
+      button.addEventListener("click",function(event){
+
+        event.preventDefault();
+
+        const stripeUrl =
+          button.dataset.stripeUrl;
+
+        const selectedPackage =
+          button.dataset.package;
+
+        if(packageSelect){
+          packageSelect.value = selectedPackage;
+        }
+
+        if(
+          !stripeUrl ||
+          stripeUrl.startsWith("DIN_STRIPE_LANK")
+        ){
+          stripeWarning.style.display = "block";
+
+          stripeWarning.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+          });
+
+          return;
+        }
+
+        window.location.href = stripeUrl;
+      });
+
+    });
+
+    const form =
+      document.getElementById("contactForm");
+
+    const status =
+      document.getElementById("status");
+
+    const submitButton =
+      form.querySelector('button[type="submit"]');
+
+    form.addEventListener("submit",async function(event){
+
       event.preventDefault();
 
       submitButton.disabled = true;
@@ -1275,39 +1562,57 @@
       status.style.display = "none";
 
       try{
-        const response = await fetch(form.action, {
-          method: "POST",
-          body: new FormData(form),
-          headers: {
-            "Accept": "application/json"
+
+        const response = await fetch(form.action,{
+          method:"POST",
+          body:new FormData(form),
+          headers:{
+            "Accept":"application/json"
           }
         });
 
         if(response.ok){
+
           status.textContent =
-            "Tack! Din förfrågan har skickats. MonicaLoov.ai kontaktar dig snart.";
+            "Tack! Dina uppgifter har skickats. MonicaLoov.ai kontaktar dig snart.";
 
           status.style.display = "inline";
           form.reset();
+
         }else{
-          const result = await response.json().catch(() => null);
+
+          const result =
+            await response.json().catch(function(){
+              return null;
+            });
 
           status.textContent =
             result && result.errors
-              ? result.errors.map(error => error.message).join(", ")
+              ? result.errors
+                  .map(function(error){
+                    return error.message;
+                  })
+                  .join(", ")
               : "Något gick fel. Kontrollera uppgifterna och försök igen.";
 
           status.style.display = "inline";
         }
+
       }catch(error){
+
         status.textContent =
           "Det gick inte att skicka just nu. Försök igen om en stund.";
 
         status.style.display = "inline";
+
       }finally{
+
         submitButton.disabled = false;
-        submitButton.textContent = "Skicka förfrågan";
+        submitButton.textContent =
+          "Skicka eventuppgifter";
+
       }
+
     });
   </script>
 
