@@ -471,7 +471,6 @@
       gap:22px;
     }
 
-    .reviews,
     .contact-box{
       background:var(--paper);
       border-radius:28px;
@@ -479,16 +478,41 @@
       box-shadow:var(--shadow);
     }
 
-    .reviews-top{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-      margin-bottom:16px;
+    .reviews-section{
+      padding:84px 0;
+      background:#f6f6f4;
     }
 
-    .reviews-top h3{
-      font-size:31px;
+    .reviews-heading{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 34px;
+    }
+
+    .reviews-heading h2{
+      font-size:clamp(38px,5vw,60px);
+      line-height:1.08;
+      margin-top:12px;
+    }
+
+    .reviews-heading p{
+      margin-top:14px;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .reviews-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .review-card{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:28px;
+      box-shadow:0 18px 55px rgba(0,0,0,.08);
     }
 
     .stars{
@@ -496,34 +520,28 @@
       letter-spacing:.14em;
     }
 
-    .review{
-      padding:18px 0;
-      border-top:1px solid var(--line);
-    }
-
-    .review:first-of-type{
-      border-top:0;
-    }
-
-    .review blockquote{
-      font-size:22px;
-      line-height:1.45;
+    .review-card blockquote{
+      margin-top:18px;
+      font-size:21px;
+      line-height:1.48;
       font-style:italic;
     }
 
-    .review footer{
-      margin-top:10px;
+    .review-card footer{
+      margin-top:18px;
       color:var(--muted);
       font-size:12px;
     }
 
     .reviews-note{
-      margin-top:16px;
+      max-width:760px;
+      margin:22px auto 0;
       padding:14px 16px;
       border-radius:14px;
-      background:#f1f1f1;
+      background:#ececea;
       color:var(--muted);
       font-size:12px;
+      text-align:center;
     }
 
     .contact-box h3{
@@ -719,12 +737,15 @@
         grid-template-columns:1fr;
       }
 
-      .reviews,
       .contact-box{
         padding:22px;
       }
 
-      .review blockquote{
+      .reviews-grid{
+        grid-template-columns:1fr;
+      }
+
+      .review-card blockquote{
         font-size:20px;
       }
 
@@ -755,9 +776,13 @@
 
       <nav class="links">
 
-        <a href="#tjansten">Tjänsten</a>
+        <a href="#tjansten">
+          Tjänsten
+        </a>
 
-        <a href="#recensioner">Recensioner</a>
+        <a href="#recensioner">
+          Recensioner
+        </a>
 
         <a class="btn btn-dark nav-cta" href="#kontakt">
           Beställ
@@ -788,10 +813,11 @@
 
           <p class="lead">
             MemoryQR by MonicaLoov.ai är en färdig premiumtjänst
-            för bröllop, födelsedag, baby shower, förlovning och
-            företagsevent. Gästerna skannar QR-koden, laddar upp
-            sina bilder direkt från mobilen och alla minnen samlas
-            i ett privat galleri på samma plats.
+            för bröllop, födelsedag, baby shower, förlovning
+            och företagsevent. Gästerna skannar QR-koden,
+            laddar upp sina bilder direkt från mobilen
+            och alla minnen samlas i ett privat galleri
+            på samma plats.
           </p>
 
           <div class="hero-actions">
@@ -808,11 +834,17 @@
 
           <div class="hero-points">
 
-            <span>Personlig QR-kod</span>
+            <span>
+              Personlig QR-kod
+            </span>
 
-            <span>Gäster laddar upp bilder</span>
+            <span>
+              Gäster laddar upp bilder
+            </span>
 
-            <span>Alla minnen samlas på samma plats</span>
+            <span>
+              Alla minnen samlas på samma plats
+            </span>
 
           </div>
 
@@ -847,8 +879,8 @@
             <p>
               Du köper en tjänst – vi gör resten.
               Du får en personlig QR-kod och en exklusiv eventsida
-              som gör det enkelt för gästerna att dela bilder och filmer
-              under hela dagen.
+              som gör det enkelt för gästerna att dela bilder
+              och filmer under hela dagen.
             </p>
 
             <div class="qr-preview">
@@ -1062,8 +1094,8 @@
             <p>
               Det här är inte bara en QR-kod.
               Det är en komplett tjänst där QR-koden leder gästerna
-              till en sida där de kan ladda upp sina egna bilder och filmer,
-              och där allt samlas på samma plats för dig.
+              till en sida där de kan ladda upp sina egna bilder
+              och filmer, och där allt samlas på samma plats för dig.
             </p>
 
           </div>
@@ -1071,75 +1103,6 @@
         </div>
 
         <div class="right-stack">
-
-          <section class="reviews" id="recensioner">
-
-            <div class="reviews-top">
-
-              <h3>
-                Recensioner
-              </h3>
-
-              <div class="stars">
-                ★★★★★
-              </div>
-
-            </div>
-
-            <!-- ÄNDRA RECENSION 1 HÄR -->
-
-            <article class="review">
-
-              <blockquote>
-                “Så fint, exklusivt och enkelt för gästerna.
-                Vi fick så många bilder som vi annars hade missat.”
-              </blockquote>
-
-              <footer>
-                — Kundnamn, Bröllop
-              </footer>
-
-            </article>
-
-            <!-- ÄNDRA RECENSION 2 HÄR -->
-
-            <article class="review">
-
-              <blockquote>
-                “QR-koden gjorde allt lätt.
-                Gästerna förstod direkt hur de skulle
-                ladda upp sina bilder.”
-              </blockquote>
-
-              <footer>
-                — Kundnamn, Student
-              </footer>
-
-            </article>
-
-            <!-- ÄNDRA RECENSION 3 HÄR -->
-
-            <article class="review">
-
-              <blockquote>
-                “Det kändes premium och genomtänkt.
-                Alla bilder samlades på samma plats
-                och det var guld värt.”
-              </blockquote>
-
-              <footer>
-                — Kundnamn, Företagsevent
-              </footer>
-
-            </article>
-
-            <div class="reviews-note">
-              Du kan ändra texterna direkt i denna del av
-              <strong>index.html</strong>
-              där det står “ÄNDRA RECENSION”.
-            </div>
-
-          </section>
 
           <section class="contact-box" id="kontakt">
 
@@ -1302,6 +1265,99 @@
 
           </section>
 
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="reviews-section" id="recensioner">
+
+      <div class="wrap">
+
+        <div class="reviews-heading">
+
+          <p class="eyebrow">
+            Kundernas upplevelser
+          </p>
+
+          <h2>
+            Vad kunder säger om MemoryQR
+          </h2>
+
+          <p>
+            Här kan du lägga in riktiga omdömen
+            från kunder som har använt MemoryQR på sina event.
+          </p>
+
+        </div>
+
+        <div class="reviews-grid">
+
+          <!-- BYT TILL EN RIKTIG RECENSION FÖRE PUBLICERING -->
+
+          <article class="review-card">
+
+            <div class="stars">
+              ★★★★★
+            </div>
+
+            <blockquote>
+              “Så fint, exklusivt och enkelt för gästerna.
+              Vi fick så många bilder som vi annars hade missat.”
+            </blockquote>
+
+            <footer>
+              — Emma & Johan, Bröllop
+            </footer>
+
+          </article>
+
+          <!-- BYT TILL EN RIKTIG RECENSION FÖRE PUBLICERING -->
+
+          <article class="review-card">
+
+            <div class="stars">
+              ★★★★★
+            </div>
+
+            <blockquote>
+              “QR-koden gjorde allt lätt.
+              Gästerna förstod direkt hur de skulle
+              ladda upp sina bilder.”
+            </blockquote>
+
+            <footer>
+              — Sofia Lind, Födelsedag
+            </footer>
+
+          </article>
+
+          <!-- BYT TILL EN RIKTIG RECENSION FÖRE PUBLICERING -->
+
+          <article class="review-card">
+
+            <div class="stars">
+              ★★★★★
+            </div>
+
+            <blockquote>
+              “Det kändes premium och genomtänkt.
+              Alla bilder samlades på samma plats
+              och det var guld värt.”
+            </blockquote>
+
+            <footer>
+              — Nordic Events AB, Företagsevent
+            </footer>
+
+          </article>
+
+        </div>
+
+        <div class="reviews-note">
+          Namnen och recensionerna ovan är exempel.
+          Byt dem mot riktiga kundomdömen innan hemsidan publiceras.
         </div>
 
       </div>
